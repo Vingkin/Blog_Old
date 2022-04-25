@@ -3,6 +3,7 @@ module.exports = {
     description: 'Vingkin\'s Blog',
     base: '/Blog/',
     theme: 'reco',
+    icon: 'logo.jpg',
     markdown: {
         lineNumbers: true//代码显示行号
     },
@@ -74,29 +75,6 @@ module.exports = {
                 }
             ]
         },
-        // sidebar: [
-        //     {
-        //         title: '主页',
-        //         collapsable: false,
-        //         children: [
-        //             { title: "读前须知", path: "/guide/读前须知" }
-        //         ]
-        //     },
-        //     {
-        //         title: "面试",
-        //         // path: '/interview/',
-        //         collapsable: true,
-        //         children: [
-        //             {
-        //               title: "Java基础",
-        //               children: [
-        //                   { title: "Java并发", path: "/interview/concurrent" },
-        //                   { title: "JVM", path: "/interview/JVM" }
-        //               ]
-        //             }
-        //         ]
-        //     }
-        // ],
         sidebarDepth: 2,
         lastUpdated: 'Last Updated',
         searchMaxSuggestoins: 10,
