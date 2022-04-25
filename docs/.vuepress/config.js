@@ -1,7 +1,7 @@
 module.exports = {
     title: 'Vingkin',
     description: 'Vingkin\'s Blog',
-    base: '/Blog/',
+    // base: '/Blog/',
     theme: 'reco',
     markdown: {
         lineNumbers: true//代码显示行号

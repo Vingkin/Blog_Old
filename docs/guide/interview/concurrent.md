@@ -1558,3 +1558,8 @@ public CountDownLatch(int count) {
 ```
 
 比如可以用于王者荣耀玩家加载，只有所有玩家都加载到100%才能开始游戏。
+
+如果需要主线程汇总结果，`CountdownLatch`就不如`future`了，主线程通过get方法可以等待其他线程的运行结果，所有线程都运行完了进行汇总。
+
+## Cyclicbarrier
+
