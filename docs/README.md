@@ -2,7 +2,7 @@
 
 home: true
 heroImage: /logo.jpg
-actionText: 快速上手 →
+actionText: 开始阅读
 actionLink: /guide/读前须知.html
 features:
 - title: 简洁至上

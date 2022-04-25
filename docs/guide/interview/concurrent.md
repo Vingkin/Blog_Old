@@ -105,7 +105,6 @@ class Monitor {
     }
 }
 ```
-
 ## 0x05. 守护线程
 
 当Java进程中有多个线程执行时，只有当所有非守护线程执行完毕后，Java进程才会结束。但当非守护线程执行完毕后，守护线程无论是否执行完毕，都会一同结束。
@@ -208,7 +207,6 @@ public static void main(String[] args) {
     }
 }
 ```
-
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/20201219201521709.png)
 
 ## 0x0A. 自旋优化
@@ -1021,7 +1019,6 @@ public static ExecutorService newCachedThreadPool() {
     * 没有容量，没有线程来取是放不进去的
     * 只有当线程取任务时，才会将任务放入该阻塞队列中
 * 整个线程池表现为线程数会根据任务量不断增长，没有上限，当任务执行完毕，空闲 1分钟后释放线程。 适合任务数比较密集，但每个任务执行时间较短的情况
-* 
 
 `newSingleThreadExecutor`
 
