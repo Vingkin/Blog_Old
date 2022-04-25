@@ -1563,6 +1563,64 @@ public CountDownLatch(int count) {
 
 ## Cyclicbarrier
 
-这就是爱
+循环栅栏，用来进行线程协作，等待线程满足某个计数。构造时设置**计数个数**，每个线程执行到某个需要**“同步”**的时刻调用await()方法进行等待，当等待的线程数满足**计数个数**时，继续执行。
 
-cyfdsb
+和`CountdownLatch`和类似，区别就是在于`Cyclibarrier`计数变为0后下次再调用可以恢复到初始设定的值。`CountdownLatch`要想恢复设定值只能重新创建新的`CountdownLatch`对象。
+
+```java
+ExecutorService executorService = Executors.newFixedThreadPool(2);
+CyclicBarrier bar = new CyclicBarrier(2, () -> {
+    log.debug("task1 task2 finished");
+});
+for (int i = 0; i < 3; i++) {
+    // 计数变为0后，下次循环计数重置
+    executorService.submit(() -> {
+        log.debug("task1 begin...");
+        try {
+            bar.await(); // 2 - 1
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    });
+    executorService.submit(() -> {
+        log.debug("task2 begin...");
+        try {
+            bar.await(); // 1 - 1
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    });
+}
+```
+
+**注意线程池线程数和`CyclicBarrier`的计数要一样**
+
+比如下面这种情况，task1会优先运行2次，这样就不会达到等待统计两个线程运行结束的预期了
+
+```java
+ExecutorService executorService = Executors.newFixedThreadPool(3);
+CyclicBarrier bar = new CyclicBarrier(2, () -> {
+    log.debug("task1 task2 finished");
+});
+for (int i = 0; i < 3; i++) {
+    executorService.submit(() -> {
+        log.debug("task1 begin...");
+        try {
+            bar.await(); // 2 - 1
+            Thread.sleep(1000);
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    });
+    executorService.submit(() -> {
+        log.debug("task2 begin...");
+        try {
+            bar.await(); // 1 - 1
+            Thread.sleep(3000);
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    });
+}
+```
+
