@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Vingkin',
-    description: 'Vingkin\'s Blog',
+    description: '我是要成为火影的男人',
     base: '/Blog/',
     theme: 'reco',
     icon: 'logo.jpg',
@@ -15,15 +15,10 @@ module.exports = {
     themeConfig: {
         // lastUpdated: '上次更新',
         subSidebar: 'auto',
+        author: 'Vingkin',
         logo: 'logo.jpg',
         nav: [
-            { text: '首页', link: '/' },
-            {
-                text: 'Vingkin 的博客',
-                items: [
-                    { text: 'Github', link: 'https://github.com/Vingkin' }
-                ]
-            }
+            { text: '首页', link: '/' }
         ],
         sidebar: {
             '/guide': [
@@ -89,7 +84,7 @@ module.exports = {
         repo: 'vingkin/Blog',
         // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
         // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-        repoLabel: '查看源码',
+        // repoLabel: '查看源码',
 
         // 以下为可选的编辑链接选项
 
