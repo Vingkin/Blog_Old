@@ -16,7 +16,7 @@ module.exports = {
         // lastUpdated: '上次更新',
         subSidebar: 'auto',
         author: 'Vingkin',
-        logo: 'logo.jpg',
+        logo: '/logo.jpg',
         nav: [
             { text: '首页', link: '/' }
         ],
@@ -101,15 +101,16 @@ module.exports = {
     },
     plugins: [
         [
+            'vuepress-plugin-mathjax',
+            {
+                target: 'svg',
+                macros: {
+                    '*': '\\times',
+                },
+            },
+        ],
+        [
             'vuepress-plugin-code-copy', true
         ]
     ]
-    // plugins: [
-    //     ['vuepress-plugin-nuggets-style-copy', {
-    //         copyText: '复制',
-    //         tip: {
-    //             content: '复制成功'
-    //         }
-    //     }]
-    // ]
 }

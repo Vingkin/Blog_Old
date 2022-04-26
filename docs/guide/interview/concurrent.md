@@ -4,14 +4,14 @@ author: Vingkin
 date: 2022-04-24
 ---
 
-## 0x00. start()和run()
+## start()和run()
 
 1. start()和run()都是Thread类的方法（如果用的是Runnable则执行的是Runnable中的run方法，注意Callable中的是call方法）
 2. start是启动线程作用是将线程变为就绪状态，至于是否调用还是得看CPU的分配。run是一个线程的具体执行内容，线程启动后自动调用。
 3. 如果在main线程中调用了t1线程的run方法，就相当于main线程运行了一个普通的run方法，并没能达到多线程的效果
 4. strat只能调用一次，多次调用会抛`IllegalThreadStateException`异常
 
-## 0x01. sleep()与yield()
+## sleep()与yield()
 
 **sleep**
 
@@ -30,20 +30,20 @@ date: 2022-04-24
 
 sleep有休眠时间，yield没有时间参数
 
-## 0x02. interrupt()
+## interrupt()
 
 > Thread中的方法
 
 * 如果打断的是阻塞线程(`sleep`, `wait`, `join`)，则打断标记(`isInterrupted()`)会在打断后清为False
 * 如果打断的是正常运行的线程，则不会清空打断状态
 
-## 0x03. 线程优先级
+## 线程优先级
 
 Java中优先级最大10，最小1，默认为5，仅仅是一个提示，调度器甚至可以忽略。
 
 只有在cpu比较忙的时候，优先级较高的线程会获得更多的时间片，cpu空闲时，优先级几乎没什么用。
 
-## 0x04. 两阶段终止模式
+## 两阶段终止模式
 
 在线程T1中如何优雅地终止另一个线程T2？这里的优雅指的是给T2一个处理其他事情的机会（如释放锁）
 
@@ -105,13 +105,13 @@ class Monitor {
     }
 }
 ```
-## 0x05. 守护线程
+## 守护线程
 
 当Java进程中有多个线程执行时，只有当所有非守护线程执行完毕后，Java进程才会结束。但当非守护线程执行完毕后，守护线程无论是否执行完毕，都会一同结束。
 
 > 垃圾回收器就是一个守护线程
 
-## 0x06. 线程状态
+## 线程状态
 
 **五种状态**
 
@@ -147,7 +147,7 @@ class Monitor {
 
 ![Java 线程的状态 ](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/Java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.png)
 
-## 0x07. 变量的线程安全分析
+## 变量的线程安全分析
 
 **成员变量和静态变量的线程安全分析**
 
@@ -163,7 +163,7 @@ class Monitor {
   * 如果该对象没有逃离方法的作用范围，则线程安全
   * 如果该对象逃离了方法的作用范围，则线程不安全
 
-## 0x08. 对象头
+## 对象头
 
 Java对象头详细信息在JVM中有描述，简要来说包含`Mark Word`(32bit)和`Klass Word`(32bit)。如果是数组的话还会包含数组长度(32bit)。
 
@@ -171,7 +171,7 @@ Java对象头详细信息在JVM中有描述，简要来说包含`Mark Word`(32bi
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/0ffaeb7ddf7d71801bfd3eeb00754162.png)
 
-## 0x09. Monitor原理
+## Monitor原理
 
 Monitor被翻译成**监视器**或**管程**
 
@@ -209,7 +209,7 @@ public static void main(String[] args) {
 ```
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/20201219201521709.png)
 
-## 0x0A. 自旋优化
+## 自旋优化
 
 > 优化重量级锁竞争
 
@@ -225,25 +225,25 @@ public static void main(String[] args) {
 
 自旋会占用CPU时间，单核CPU自选就是浪费，多核CPU自旋才能发挥优势
 
-## 0x0B. 轻量级锁
+## 轻量级锁
 
 > 用于优化重量级锁
 >
 > https://blog.csdn.net/m0_37989980/article/details/111408759#t5
 
-## 0x0C. 偏向锁
+## 偏向锁
 
 > 用于优化轻量级锁重入
 >
 > https://blog.csdn.net/m0_37989980/article/details/111408759#t8
 
-## 0x0D. wait()和notify()
+## wait()和notify()
 
 > Object类中的方法
 >
 > https://blog.csdn.net/m0_37989980/article/details/111412907#t0
 
-## 0x0E. sleep()和wait()的区别
+## sleep()和wait()的区别
 
 1. sleep是Thread方法，wait是Object方法
 2. sleep不需要强制和synchronized配合使用，但wait需要和synchronized一起使用
@@ -251,7 +251,7 @@ public static void main(String[] args) {
 
 他们的线程状态都是`TIMED_WAITING`
 
-## 0x0F. 保护性暂停模式
+## 保护性暂停模式
 
 > 用于一个线程等待另一个线程的执行结果
 >
@@ -264,7 +264,7 @@ public static void main(String[] args) {
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/image-20220303155836268.png)
 
-## 0x10. 生产者消费者模式
+## 生产者消费者模式
 
 * 与前面的保护性暂停中的GuardObjct不同，不需要产生结果和消费结果的线程一一对应
 * 消费队列可以用来平衡生产和消费的线程资源
@@ -274,7 +274,7 @@ public static void main(String[] args) {
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/image-20220303162257793.png)
 
-## 0x11. park()和unpark()
+## park()和unpark()
 
 > https://blog.csdn.net/m0_37989980/article/details/111412907#t8
 
@@ -290,7 +290,7 @@ public static void main(String[] args) {
 2. park，unpark是以线程为单位来【阻塞】和【唤醒】线程，而notify只能随机唤醒一个等待线程，notifyAll是唤醒所有等待线程，无法唤醒指定的线程。
 3. ~~park，unpark可以先unpark，而wait，notify不能先notify~~
 
-## 0x12. 死锁，活锁，饥饿
+## 死锁，活锁，饥饿
 
 ### 死锁
 
@@ -365,7 +365,7 @@ public static void main(String[] args) {
 - 某些线程因为优先级太低，导致一直无法获得资源的现象。
 - 在使用`顺序加锁`时，可能会出现`饥饿现象`
 
-## 0x13. 固定线程运行顺序
+## 固定线程运行顺序
 
 **wait()&notify()**
 
@@ -492,7 +492,7 @@ public class Test {
 }
 ```
 
-## 0x14. 线程交替输出
+## 线程交替输出
 
 **wait()&notify()**
 
@@ -665,13 +665,13 @@ public class Test {
 }
 ```
 
-## 0x15. 并发编程的三大特性
+## 并发编程的三大特性
 
 * 原子性：保证指令不会受到线程上下文切换的影响。**程序的原子性是指整个程序中的所有操作，要么全部完成，要么全部失败，不可能滞留在中间某个环节；在多个线程一起执行的时候，一个操作一旦开始，就不会被其他线程所打断。**
 * 可见性：保证指令不会受cpu缓存的影响。**一个线程对共享变量值的修改，能够及时地被其他线程看到**
 * 有序性，保证指令不会受到cpu指令并行优化的影响
 
-## 0x16. volatile原理
+## volatile原理
 
 volatile的底层实现原理是内存屏障
 
@@ -682,20 +682,20 @@ volatile的底层实现原理是内存屏障
    * 写屏障会确保指令重排序时，不会将写屏障之前的代码排在写屏障之后
    * 读屏障会确保指令重排序时，不会将读屏障之后的代码排在读屏障之前
 
-## 0x17. volatile和synchronized
+## volatile和synchronized
 
 * 一个线程对volatile变量的修改对另一个线程可见，不能保证原子性，仅用在一个写线程，多个读线程的情况。（比如volatile修饰的i，两个线程一个i++一个i--，只能保证看到最新值，不能解决指令交错的问题。）
 * synchronized语句块既能保证代码块的原子性，也同时能保证代码块内变量的可见性。但缺点是synchronized属于重量级锁，性能相对较低。
 * volatile关键字只能修饰变量，synchronized还可以修饰方法，类以及代码块。
 * volatile关键字主要用于解决变量在多个线程之间的可见性，而synchronized关键字解决的是多个线程之间访问资源的同步性。
 
-## 0x18. volatile和synchronized在有序性上的不同
+## volatile和synchronized在有序性上的不同
 
 * synchronized的有序性是持有相同锁的两个同步块只能串行的进入，即被加锁的内容要按照顺序被多个线程执行，但是其内部的同步代码还是会发生重排序。
 * volatile的有序性是通过插入内存屏障来保证指令按照顺序执行。不会存在后面的指令跑到前面的指令之前来执行。是保证编译器优化的时候不会让指令乱序。
 * **synchronized是不能保证指令重排的。**
 
-## 0x19. i++是否线程安全
+## i++是否线程安全
 
 > 提到这个问题得区分i是成员变量/静态变量还是局部变量，如果是前者需要考虑，对于局部变量不管是基本类型还是包装类型都不需要考虑，包装类型比如Integer是不可变类，是线程安全的。
 >
@@ -720,7 +720,7 @@ putstatic    i // 将修改后的值存入静态变量i
 1. 对i++操作的方法加同步锁，同时只能由一个线程执行i++
 2. 使用支持原子类型操作的类，比如AtomicInteger，内部使用的是CAS
 
-## 0x11A. CAS的特点
+## CAS的特点
 
 结合CAS和volatile可以实现无锁并发，适用于线程数少、多核CPU的场景下。
 
@@ -733,7 +733,7 @@ putstatic    i // 将修改后的值存入静态变量i
   * 因为没有使用synchronized，所以线程不会陷入阻塞，这是效率提升的因素之一
   * 但是如果竞争激烈，可以想到重试必然频繁发生，反而效率会受影响
 
-## 0x1B. Atomic原子类
+## Atomic原子类
 
 > [并发编程面试必备：JUC 中的 Atomic 原子类总结 (qq.com)](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484834&idx=1&sn=7d3835091af8125c13fc6db765f4c5bd&source=41#wechat_redirect)
 
@@ -816,7 +816,7 @@ putstatic    i // 将修改后的值存入静态变量i
    3. DoubleAdder
    4. DoubleAccumulator
 
-## 0x1C. 原子引用ABA问题
+## 原子引用ABA问题
 
 > 采用CAS主线程仅能判断出共享变量的值与初值A是否相同，不能感知到这种从A改为B又改回A的情况，如果主线程希望：
 >
@@ -825,7 +825,7 @@ putstatic    i // 将修改后的值存入静态变量i
 1. 通过AtomicStampedReference判断是否更改了版本号，传入的是整型变量
 2. 通过AtomicMarkableReference判断是否被修改，传入的是布尔变量
 
-## 0x1D. LongAdder原理
+## LongAdder原理
 
 ```java
 // 累加单元数组，懒惰初始化
@@ -840,7 +840,7 @@ transient volatile int cellsBusy;
 
 **之前AtomicLong等都是在一个`共享资源变量`上进行竞争, `while(true)`循环进行CAS重试, 性能没有`LongAdder`高**
 
-## 0x1E. Unsafe
+## Unsafe
 
 > Unsafe并不是表示线程不安全，而是表示Unsafe类中的操作不安全，因为是对于底层的操作。
 >
@@ -853,7 +853,7 @@ Unsafe unsafe = (Unsafe) theUnsafe.get(null);
 System.out.println(unsafe);
 ```
 
-## 0x1F. 不可变类
+## 不可变类
 
 **final的使用**
 
@@ -885,7 +885,7 @@ public String substring(int beginIndex, int endIndex) {
 发现其方法最后是调用String 的构造方法创建了一个新字符串，再进入这个构造看看，是否对 `final char[] value` 做出了修改：结果发现也没有，构造新字符串对象时，会生成新的 `char[] value`，对内容进行复制。
 这种通过创建副本对象来避免共享的手段称之为【保护性拷贝（defensive copy）】
 
-## 0x20. final原理
+## final原理
 
 ```java
 public class TestFinal {
@@ -908,11 +908,11 @@ public class TestFinal {
 * 写屏障保证该屏障之前的，对共享变量的改动都会同步到主存中。
 * 写屏障会确保指令重排序时，不会将写屏障之前的代码排在写屏障之后
 
-## 0x21. 享元模式
+## 享元模式
 
 享元模式简单理解就是重用数量有限的同一对象，比如字符串常量池，包装类常量池，线程池以及字符串连接池都运用了享元模式的思想。
 
-## 0x22. 线程池
+## 线程池
 
 ### 线程池的好处
 
@@ -1056,7 +1056,7 @@ public static ExecutorService newSingleThreadExecutor() {
 
    CPU 不总是处于繁忙状态，例如，当你执行业务计算时，这时候会使用 CPU 资源，但当你执行 I/O 操作时、远程RPC 调用时，包括进行数据库操作时，这时候 CPU 就闲下来了，你可以利用多线程提高它的利用率。通过CPU的利用率计算得到。
 
-## 0x23. ThreadLocal
+## ThreadLocal
 
 1. ThreadLocal是Java所提供的线程本地存储机制，可以利用该机制将数据**缓存在某个线程内部**，该线程可以在任何时刻，任意方法中获取缓存的数据
 2. ThreadLocal底层是通过ThreadLocalMap来实现的，每个Thread对象（注意不是ThreadLocal对象）中都存在一个ThreadLocalMap，Map的key为ThreadLocal对象，Map的value为需要缓存的值
@@ -1064,7 +1064,7 @@ public static ExecutorService newSingleThreadExecutor() {
 
 
 
-## 0x24. CopyOnWriteArrayList
+## CopyOnWriteArrayList
 
 CopyOnWriteArrayList是java.util.concurrent包提供的方法，它实现了读操作无锁，写操作则通过操作操作底层数组的新副本来实现（将之前的ArrayList拷贝一份，写操作在该副本上进行，在完成写之前，需要对写加锁，写操作完成后，将有来的引用指向新副本），是一种读写分离的并发策略。
 
@@ -1072,7 +1072,7 @@ CopyOnWrite并发容器适用于对于绝大部分访问都是读，且只是偶
 
 **get弱一致性**
 
-## 0x25. ConcurrentHashMap
+## ConcurrentHashMap
 
 > 一下都是基于JDK 8
 
