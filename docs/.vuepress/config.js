@@ -66,6 +66,12 @@ module.exports = {
                                 { title: '设计模式', path: '/guide/interview/DesignMode' },
                                 { title: '代码模板', path: '/guide/interview/CodeTemplate' }
                             ]
+                        },
+                        {
+                            title: '面经',
+                            children: [
+                                { title: '华为', path: 'guide/interview/huawei'}
+                            ]
                         }
                     ]
                 }
