@@ -4,6 +4,7 @@ module.exports = {
     base: '/Blog/',
     theme: 'reco',
     icon: 'logo.jpg',
+    timeline: true,
     markdown: {
         lineNumbers: true//代码显示行号
     },
@@ -18,7 +19,8 @@ module.exports = {
         author: 'Vingkin',
         logo: '/logo.jpg',
         nav: [
-            { text: '首页', link: '/' }
+            { text: 'Home', icon: 'reco-home', link: '/' },
+            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' }
         ],
         sidebar: {
             '/guide': [
