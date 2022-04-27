@@ -61,7 +61,7 @@ module.exports = {
                             title: '计算机基础',
                             children: [
                                 { title: '操作系统', path: '/guide/interview/OS' },
-                                { title: '计算机网络' },
+                                { title: '计算机网络', path: '/guide/interview/ComputerNetwork'},
                                 { title: '数据结构', path: '/guide/interview/DataStructure' },
                                 { title: '设计模式', path: '/guide/interview/DesignMode' },
                                 { title: '代码模板', path: '/guide/interview/CodeTemplate' }
