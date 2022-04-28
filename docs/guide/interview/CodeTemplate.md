@@ -4,7 +4,7 @@ author: Vingkin
 date: 2022-4-24
 ---
 
-## 0x00. 快排
+## 快排
 
 ```java
 public class Main {
@@ -40,7 +40,7 @@ public class Main {
 }
 ```
 
-## 0x01. 二叉树构建
+## 二叉树构建
 
 ```c++
 #include<bits/stdc++.h>
@@ -118,11 +118,11 @@ int main () {
 }
 ```
 
-## 0x02. 图的构建
+## 图的构建
 
 
 
-## 0x03. 埃氏筛
+## 埃氏筛
 
 ```c++
 #include<bits/stdc++.h>
@@ -152,5 +152,52 @@ int main () {
 	}
 	return 0;
 }
+```
+
+## 并查集
+
+```java
+class UnionFind {
+    private Map<Integer,Integer> father;
+    
+    public UnionFind() {
+        father = new HashMap<>();
+    }
+    
+    public void add(int x) {
+        if (!father.containsKey(x)) {
+            father.put(x, null);
+        }
+    }
+    
+    public void merge(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        
+        if (rootX != rootY){
+            father.put(rootX,rootY);
+        }
+    }
+    
+    public int find(int x) {
+        int root = x;
+        
+        while(father.get(root) != null){
+            root = father.get(root);
+        }
+        
+        while(x != root){
+            int original_father = father.get(x);
+            father.put(x,root);
+            x = original_father;
+        }
+        
+        return root;
+    }
+    
+    public boolean isConnected(int x, int y) {
+        return find(x) == find(y);
+    }
+} 
 ```
 
