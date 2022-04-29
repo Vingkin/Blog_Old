@@ -14,7 +14,8 @@ module.exports = {
         }
     },
     themeConfig: {
-        // lastUpdated: '上次更新',
+        lastUpdated: true,
+        // lastUpdatedText: ,
         subSidebar: 'auto',
         author: 'Vingkin',
         logo: '/logo.jpg',
@@ -80,7 +81,6 @@ module.exports = {
             ]
         },
         sidebarDepth: 2,
-        lastUpdated: 'Last Updated',
         searchMaxSuggestoins: 10,
         serviceWorker: {
             updatePopup: {
