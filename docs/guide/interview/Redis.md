@@ -199,7 +199,7 @@ Cluster默认会对key使用crc16算法进行hash得到一个整数值，然后�
 
 如果发生在slave节点中，那么问题会更严重。slave是不会主动清理过期key的，当一个key过期时，master会先清理删除它，然后向slave发送一个DEL命令，告知slave也删除这个key，以此达到主从库的数据一致性。
 
-**假设Redis中存在大量已过期但是未被清理的key，在slave中执行RANDOMKEY时，因为不会删除过期key，则有可能无限制的命中过期key，陷入死循环，导致Redis实例卡死。**
+**假设Redis中存在大量已过期但是未被清理的key，在slave中执行`RANDOMKEY`时，因为不会删除过期key，则有可能无限制的命中过期key，陷入死循环，导致Redis实例卡死。**
 
 这其实是Redis 5.0之前的一个Bug，修复方案就是给`RANDOMKEY`增加最多执行次数，无论是否找到key，都返回。
 
