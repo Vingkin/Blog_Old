@@ -297,6 +297,14 @@ public class Main {
 }
 ```
 
+**空间优化**
+
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/640.png)
+
+求第 $i$ 行第 $c$ 个格子的值时，只依赖于第 $i-1$ 行的第 $c$ 个格子和 $c-v[i]$ 个格子。
+
+问题来自于上一行 $c$ 以及前面的区域，我们必须让 $c$ 以**递减**的形式更新，以保证能够取到上一行的前面的值（因为 $c$ 递减更新的话前面是旧值，我们恰恰需要上一行的旧值）
+
 ```java
 import java.util.Scanner;
 
