@@ -252,3 +252,79 @@ class NumArray {
 }
 ```
 
+## 01背包
+
+> [【动态规划/背包问题】那就从 0-1 背包问题开始讲起吧 ... (qq.com)](https://mp.weixin.qq.com/s/xmgK7SrTnFIM3Owpk-emmg)
+
+```java
+import java.util.Scanner;
+
+/**
+ * @author Vingkin
+ * @since 2022/5/8 20:33
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt(); // 物品个数
+        int V = sc.nextInt(); // 背包体积
+        int[] v = new int[N]; // 体积
+        int[] w = new int[N]; // 价值
+        for (int i = 0; i < N; i++) {
+            v[i] = sc.nextInt();
+            w[i] = sc.nextInt();
+        }
+        int[][] f = new int[N][V + 1];
+        // 先处理「考虑第一件物品」的情况
+        for (int i = 0; i <= V; i++) {
+            f[0][i] = i >= v[0] ? w[0] : 0;
+        }
+        // 再处理「考虑其余物品」的情况
+        for (int i = 1; i < N; i++) {
+            for (int j = 0; j <= V; j++) {
+                if (j >= v[i]) {
+                    // f[i - 1][j]表示不选第i个物品，f[i - 1][j - v[i]] + w[i]表示选择第i个物品
+                    f[i][j] = Math.max(f[i - 1][j], f[i - 1][j - v[i]] + w[i]);
+                } else {
+                    f[i][j] = f[i - 1][j];
+                }
+            }
+        }
+        System.out.println(f[N - 1][V]);
+    }
+
+}
+```
+
+```java
+import java.util.Scanner;
+
+/**
+ * @author Vingkin
+ * @since 2022/5/8 20:33
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int V = sc.nextInt();
+        int[] v = new int[N]; // 体积
+        int[] w = new int[N]; // 价值
+        for (int i = 0; i < N; i++) {
+            v[i] = sc.nextInt();
+            w[i] = sc.nextInt();
+        }
+        int[] f = new int[V + 1];
+        for (int i = 0; i < N; i++) {
+            for (int j = V; j >= v[i]; j--) {
+                f[j] = Math.max(f[j], f[j - v[i]] + w[i]);
+            }
+        }
+        System.out.println(f[V]);
+    }
+
+}
+```
+
