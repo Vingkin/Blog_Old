@@ -42,7 +42,7 @@ public class Main {
 
 ## 二叉树构建
 
-```c++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 struct TreeNode {
@@ -124,7 +124,7 @@ int main () {
 
 ## 埃氏筛
 
-```c++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -252,7 +252,9 @@ class NumArray {
 }
 ```
 
-## 01背包
+## 背包
+
+### 01背包
 
 > [【动态规划/背包问题】那就从 0-1 背包问题开始讲起吧 ... (qq.com)](https://mp.weixin.qq.com/s/xmgK7SrTnFIM3Owpk-emmg)
 
@@ -336,3 +338,47 @@ public class Main {
 }
 ```
 
+### 完全背包
+
+> 完全背包和01背包相比就是每件物品数量无限
+>
+> [【动态规划/背包问题】从数学角度推导「完全背包」与「01 背包」之间的遍历顺序关系 (qq.com)](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247486107&idx=1&sn=e5fa523008fc5588737b7ed801caf4c3)
+
+状态转移方程：$dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - k * v[i]] + k * w[i])$
+
+```java
+class Solution {
+    public int maxValue(int N, int C, int[] v, int[] w) {
+        int[][] dp = new int[N][C + 1];
+        
+        // 先预处理第一件物品
+        for (int j = 0; j <= C; j++) {
+            // 显然当只有一件物品的时候，在容量允许的情况下，能选多少件就选多少件
+            int maxK = j / v[0];
+            dp[0][j] = maxK * w[0];
+        }
+        
+        // 处理剩余物品
+        for (int i = 1; i < N; i++) {
+            for (int j = 0; j <= C; j++) {
+                // 不考虑第 i 件物品的情况（选择 0 件物品 i）
+                int n = dp[i - 1][j];
+                // 考虑第 i 件物品的情况
+                int y = 0;
+                for (int k = 1 ;; k++) {
+                    if (j < v[i] * k) {
+                        break;
+                    }
+                    y = Math.max(y, dp[i - 1][j - k * v[i]] + k * w[i]);
+                }
+                dp[i][j] = Math.max(n, y);
+            }
+        }
+        return dp[N - 1][C];
+    }
+}
+```
+
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/完全背包解释.png)
+
+  把推理写一遍！！！！！！！！！！！！！
