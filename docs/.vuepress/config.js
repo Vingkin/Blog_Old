@@ -21,7 +21,9 @@ module.exports = {
         logo: '/logo.jpg',
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
-            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' }
+            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' },
+            { text: '面试', icon: 'reco-blog', link: '/guide/读前须知' },
+            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
         ],
         sidebar: {
             '/guide': [
@@ -64,7 +66,7 @@ module.exports = {
                             title: '计算机基础',
                             children: [
                                 { title: '操作系统', path: '/guide/interview/OS' },
-                                { title: '计算机网络', path: '/guide/interview/ComputerNetwork'},
+                                { title: '计算机网络', path: '/guide/interview/ComputerNetwork' },
                                 { title: '数据结构', path: '/guide/interview/DataStructure' },
                                 { title: '设计模式', path: '/guide/interview/DesignMode' },
                                 { title: '代码模板', path: '/guide/interview/CodeTemplate' }
@@ -73,9 +75,25 @@ module.exports = {
                         {
                             title: '面经',
                             children: [
-                                { title: '华为', path: 'guide/interview/huawei'}
+                                { title: '华为', path: 'guide/interview/huawei' }
                             ]
                         }
+                    ]
+                }
+            ],
+            '/ml': [
+                {
+                    title: '机器学习',
+                    collapsable: false,
+                    children: [
+                        { title: '读前须知', path: '/ml/读前须知' }
+                    ]
+                },
+                {
+                    title: '论文解读',
+                    collapsable: true,
+                    children: [
+                        { title: 'YOLOv3', path: '/ml/YOLOv3' }
                     ]
                 }
             ]
