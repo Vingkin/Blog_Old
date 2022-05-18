@@ -3,6 +3,7 @@ title: YOLOv3
 date: 2022-5-27
 ---
 
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/sayit.jpg)
 
 > 整理自同济子豪兄
 
