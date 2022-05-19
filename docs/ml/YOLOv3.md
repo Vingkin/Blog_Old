@@ -1,6 +1,7 @@
 ---
 title: YOLOv3
-date: 2022-5-27
+date: 2022-5-17
+
 ---
 
 <img src="https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/sayit.jpg" style="zoom: 200%;" />
@@ -52,3 +53,57 @@ $$
 ## 测试过程
 
 ![image-20220518144241994](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/image-20220518144241994.png)
+
+## 附录
+
+### 官方
+**YOLOV3目标检测Demo视频**：https://www.youtube.com/watch?v=MPU2HistivI
+
+https://pjreddie.com/darknet/yolo/
+
+https://github.com/pjreddie/darknet
+
+**论文地址**：https://arxiv.org/abs/1804.02767
+
+### 博客
+**江大白**：https://zhuanlan.zhihu.com/p/143747206
+
+**郭冠华**：https://zhuanlan.zhihu.com/p/40332004
+
+**Netron可视化YOLOV3网络结构**：https://blog.csdn.net/nan355655600/article/details/106246355
+
+**木盏**：https://blog.csdn.net/leviopku/article/details/82660381
+
+**太阳花的小绿豆**：https://blog.csdn.net/qq_37541097/article/details/81214953
+
+**B站工程师Algernon鉴黄YOLO**：https://github.com/thisiszhou/SexyYolo
+
+**B站工程师Algernon博客**：https://zhuanlan.zhihu.com/p/76802514
+
+**损失函数**：https://blog.csdn.net/qq_34795071/article/details/92803741
+
+### 代码复现
+**Ultralytics公司**：https://github.com/ultralytics/yolov3
+
+https://github.com/qqwweee/keras-yolo3
+
+https://github.com/bubbliiiing/yolo3-pytorch
+
+**cvpods**：https://github.com/Megvii-BaseDetection/cvpods/blob/master/cvpods/modeling/meta_arch/yolov3.py
+
+### MS COCO目标检测数据集80个类别
+**交通**：人、自行车、汽车、摩托车、飞机、公交车、火车、卡车、船
+
+**市政**：红绿灯、消防栓、STOP标志、停车收费米表、长椅
+
+**动物**：鸟、猫、狗、马、绵羊、奶牛、大象、熊、斑马、长颈鹿
+
+**随身物品**：双肩背包、雨伞、手提包、领带、行李箱
+
+**运动**：飞盘、雪橇、滑雪板、篮球、风筝、棒球棒、棒球手套、滑板、冲浪板、网球拍
+
+**器皿餐具**：瓶子、玻璃酒杯、茶杯、叉子、餐刀、勺子、碗
+
+**食物**：香蕉、苹果、三明治、橘子、西兰花、胡萝卜、热狗、匹萨、甜甜圈、蛋糕
+
+**家具**：椅子、沙发、盆栽、床、餐桌、厕所、电视、笔记本电脑、鼠标、遥控器、键盘、手机、微波炉、烤箱、烤吐司炉、洗碗槽、冰箱、书、钟表、花瓶、剪刀、泰迪熊、电吹风、牙刷

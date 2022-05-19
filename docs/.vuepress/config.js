@@ -93,7 +93,8 @@ module.exports = {
                     title: '论文解读',
                     collapsable: true,
                     children: [
-                        { title: 'YOLOv3', path: '/ml/YOLOv3' }
+                        { title: 'YOLOv3', path: '/ml/YOLOv3' },
+                        { title: 'GAN', path: '/ml/GAN' },
                     ]
                 }
             ]
