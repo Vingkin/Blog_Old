@@ -5,6 +5,8 @@ date: 2022-5-18
 
 
 
+$D_{G}^{{✳ }}(\boldsymbol{x})=\frac{p_{\text {data }}(\boldsymbol{x})}{p_{\text {data }}(\boldsymbol{x})+p_{g}(\boldsymbol{x})}$
+
 ## 附录
 
 ### 生成对抗网络GAN开山之作
