@@ -95,6 +95,7 @@ module.exports = {
                     children: [
                         { title: 'YOLOv3', path: '/ml/YOLOv3' },
                         { title: 'GAN', path: '/ml/GAN' },
+                        { title: 'CycleGAN', path: '/ml/CycleGAN' }
                     ]
                 }
             ]
