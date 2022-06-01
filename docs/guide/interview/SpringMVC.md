@@ -4,15 +4,15 @@ author: Vingkin
 date: 2022-4-24
 ---
 
-## 0x00. 什么是MVC
+## 什么是MVC
 
 MVC是一种设计模式，在这种模式下软件被分为三层，及**Model（模型）、View（视图）、Controller（控制器）**。Model代表的是数据，View代表的是用户界面，Controller代表的是数据的处理逻辑，它是Model和View这两层的桥梁。将软件分层的好处是，可以将对象之间的耦合度降低，便于代码的维护。
 
-## 0x01. DAO层是做什么的
+## DAO层是做什么的
 
 DAO层是Data Access Object的缩写，即数据访问对象，在项目中它通常作为独立的一层，专门用于访问数据库。
 
-## 0x02. 介绍一下Spring MVC的执行流程
+## 介绍一下Spring MVC的执行流程
 
 1. 整个过程开始于客户端发出一个HTTP请求，Web应用服务器接受到这个请求。如果匹配`DispatcherServlet`的请求路径，则Web容器将该请求转交给`DispatcherServlet`处理。
 2. `DispatcherServlet`接收到这个请求后，将根据请求的信息（包括URL、HTTP方法、请求报文头、请求参数、Cookie等）及`HandlerMapping`的配置找到处理请求的处理器（`Handler`）。可将`HandlerMapping`看作路由控制器，将`Handler`看作目标主机。
@@ -37,7 +37,7 @@ DAO层是Data Access Object的缩写，即数据访问对象，在项目中它�
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/SpringMVC%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png)
 
-## 0x03. 说一说你知道的Spring MVC注解
+## 说一说你知道的Spring MVC注解
 
 **@RequestMapping**
 
@@ -76,7 +76,7 @@ public List<Teacher> getKlassRelatedTeachers(
 }
 ```
 
-## 0x04. 介绍一下Sprig MVC的拦截器
+## 介绍一下Sprig MVC的拦截器
 
 > 可以拓展一下SSO单点登录来讲项目
 >
