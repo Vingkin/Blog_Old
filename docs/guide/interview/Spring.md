@@ -4,7 +4,7 @@ author: Vingkin
 date: 2022-4-24
 ---
 
-## 0x00. 列举一些重要的Spring模块
+## 列举一些重要的Spring模块
 
 下图对应的是 Spring4.x 版本。目前最新的 5.x 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件。
 
@@ -26,7 +26,7 @@ date: 2022-4-24
    4. spring-webflux ：提供对 WebFlux 的支持。WebFlux 是 Spring Framework 5.0 中引入的新的响应式框架。与 Spring MVC 不同，它不需要 Servlet API，是完全异步.
 6. Spring test：Spring 团队提倡测试驱动开发（TDD）。有了控制反转 (IoC)的帮助，单元测试和集成测试变得更简单。
 
-## 0x01. 请你说说Spring的核心是什么？
+## 请你说说Spring的核心是什么？
 
 Spring的核心是IoC和AOP
 
@@ -45,14 +45,14 @@ Spring的核心是IoC和AOP
 
    当然也可以使用AspectJ！
 
-## 0x02. 说一说对Spring容器的了解
+## 说一说对Spring容器的了解
 
 Spring主要提供了两种类型的容器：BeanFactory和ApplicationContext
 
 * `BeanFactory`：是基础类型的IoC容器，是IoC的顶层接口，提供完整的IoC服务支持。如果没有特殊指定，默认采用延迟初始化策略。只有当客户端对象需要访问容器中的某个对象时，该对象才会进行初始化以及依赖注入的操作。所以，相对来说，容器启动初期速度较快，所需要的资源有限。对于资源有限，并且功能要求不是很严格的场景，BeanFactory是比较合适的IoC容器选择。
 * `ApplicationContext`：他是在BeanFactory的基础上构建的，是`BeanFactory`的子接口，拥有BeanFactory的所有支持。除此之外，还支持比如事件发布、国际化信息支持（继承了`MessageSource`）等。ApplicationContext所管理的对象，在该类型容器启动之后，默认全部初始化并进行依赖注入。所以，对于BeanFactory而言，ApplicationContext要求更多的系统资源。同时，因为在启动时就完成所有初始化，容器启动的时间较BeanFactory也会长一些。在那些系统资源充足，并且要求更多功能的场景中，ApplicationContext类型的容器是比较合适的选择。
 
-## 0x03. 说一说对BeanFactory的了解
+## 说一说对BeanFactory的了解
 
 其实就是说上面的，包括`ApplicationContext`
 
@@ -60,7 +60,7 @@ BeanFactory是一个类工厂，与传统类工厂不同的是，BeanFactory是�
 
 BeanFactory是Spring容器的顶层接口，Spring为BeanFactory提供了很多实现，比较常用的比如`AnnotationConfigApplicationContext`，常用的方法比如`getBean()`获取指定名称的Bean。
 
-## 0x04. Spring是如何管理Bean的
+## Spring是如何管理Bean的
 
 Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行配置。
 
@@ -72,7 +72,7 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 4. `@Scope`用于声明Bean的作用域。
 5. `@PostConstruct`，`@PreDestory`用于声明Bean的生命周期。其中被`@PostConstruct`修饰的发给发将在Bean实例化后被调用，`@PreDestory`修饰的方法将在容器销毁前调用。
 
-## 0x05. Bean的作用域
+## Bean的作用域
 
 默认情况下，Bean在Spring容器中是单例的，可以通过@Scope注解修改Bean的作用域。
 
@@ -84,7 +84,7 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 | session       | 同一个HTTP Session共享一个Bean，不同的HTTP Session使用不同的Bean |
 | globalSession | 同一个全局的Session共享一个Bean，一般用于Portlet环境         |
 
-## 0x06. Bean的生命周期
+## Bean的生命周期
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/7EF8F66C3DFA7434E4CA11B47CF8F1F7.png)
 
@@ -104,7 +104,7 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 1. 我们可以自定义初始化方法，并在该方法前增加`@PostConstruct`注解，Spring容器将在调用setBeanFactory()方法之后调用该方法
 2. 我们可以自定义销毁方法，并在该方法前增加`@PreDestory`注解，Bean将在自身销毁前调用这个方法
 
-## 0x07. 单例Bean的线程安全问题了解吗
+## 单例Bean的线程安全问题了解吗
 
 > 要是问Bean的线程安全问题需要考虑单例Bean还是多例Bean，多例Bean不存在线程安全问题
 
@@ -117,37 +117,37 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 
 不过，大部分Bean实际都是无状态（没有实例变量）的（比如Dao、Service），这种情况下，Bean是线程安全的。
 
-## 0x08. @Component和@Bean的区别是什么？
+## @Component和@Bean的区别是什么？
 
 1. `@Component`注解作用于类，通常是通过类路径扫描（`@ComponentScan`）自动侦测以及自动装配到Spring容器中。而@Bean注解作用于方法，将当前方法的返回值存入IOC容器。
 2. `@Bean`注解比`@Component`注解的自定义性更强，而且很多地方我们只能通过`@Bean`注解来注册Bean。比如当我们引用第三方库中的类需要装配到Spring容器中时，只能通过`@Bean`来实现。
 
-## 0x09. Spring AOP和AspectJ AOP的区别？
+## Spring AOP和AspectJ AOP的区别？
 
 1. Spring AOP输入运行时增强，而AspectJ是编译时增强。
 2. Spring AOP基于代理，而AspectJ基于字节码操作。
 
-## 0x0A. 说说AOP的应用场景
+## 说说AOP的应用场景
 
 Spring AOP为IoC的使用提供了更多的便利。一方面，应用可以直接使用AOP的功能，设计应用的横切关注点，把跨应用的多个模块功能抽象出来，通过AOP编织到模块中，比如可以通过AOP实现应用程序中的日志功能。
 
 另一方面，在Spring内部，事务处理也是通过AOP实现的。
 
-## 0x0B. Spring AOP不能对哪些类进行增强
+## Spring AOP不能对哪些类进行增强
 
 1. Spring AOP只能对IoC容器中的Bean进行增强，对于不受容器管理的对象不能增强。
 2. 由于CGLib采用动态创建子类的方式生成代理对象，所以不能对final修饰的类进行代理。
 
-## 0x0C. 既然没有接口都可以用CGLib，为什么Spring还要使用JDK动态代理
+## 既然没有接口都可以用CGLib，为什么Spring还要使用JDK动态代理
 
 在性能方面，CGLib创建的代理对象比JDK动态代理创建的代理对象高很多。但是，CGLib在创建代理对象时所花费的时间比JDK动态代理多很多。所以，对于单例的对象无需频繁创建代理对象，采用CGLib比较合适。反之，对于多例的对象因为要频繁创建代理对象，则JDK动态代理更合适。
 
-## 0x0D. Spring是如何管理事务的
+## Spring是如何管理事务的
 
 1. **编程式事务**：Spring提供了`TransactionTemplate`和`TransactionManager`手动管理事务。这种方式相对麻烦，实际应用中很少使用。
 2. **声明式事务**：在XML配置文件中配置或者直接基于注解（推荐使用），实际是通过AOP实现的（基于`@Transactional`的全注解方式使用最多）
 
-## 0x0E. Spring中的事务传播行为
+## Spring中的事务传播行为
 
 当我们调用一个业务方法时，它的内部可能会调用其他的业务方法，以完成一个完整的业务操作。这种业务方法嵌套调用的时候，如果这两个方法都是要保证事务的，那么就要通过Spring的事务传播机制控制当前事务如何传播到被嵌套调用的业务方法中。
 
@@ -165,7 +165,7 @@ Spring在`TransactionDefinition`接口中规定了其中类型的事务传播行
 
 > 若是错误的配置了以下三种事务传播行为，事务将不会发生回滚。
 
-## 0x0F. Spring的事务如何配置，常用注解有那些？
+## Spring的事务如何配置，常用注解有那些？
 
 事务的打开、回滚和提交是由**事务管理器**来完成的，我们使用不同的数据库访问框架，就要使用与之对应的**事务管理器**。在Spring Boot中，当你添加了数据库访问框架的起步依赖时，他就会进行自动配置，即自动实例化正确的事务管理器。
 
@@ -176,19 +176,19 @@ Spring在`TransactionDefinition`接口中规定了其中类型的事务传播行
 
 另外，在`@Transactional`注解上，我们可以使用`isolation`属性声明事物的隔离级别，使用`propagation`属性声明事物的传播行为。
 
-## 0x10. @Transactional(rollbackFor = Exception.class)注解了解吗
+## @Transactional(rollbackFor = Exception.class)注解了解吗
 
 Exception分为运行时异常和非运行时异常。
 
 在`@Transactional`注解中如果不配置`rollbackFor`属性，那么事务只会在遇到`RuntimeException`的时候才会回滚，加上`rollbackFor=Exception.class`，可以让事务在遇到非运行时异常时也会回滚。
 
-## 0x11. @Transactional失效场景
+## @Transactional失效场景
 
 1. `@Transaction`应用再非public修饰的方法上
 2. `@Transaction`注解属性`propagation`设置错误，上面写的传播行为后三个会使之失效
 3. `@Transactional`注解属性`rollbackFor`设置错误
 4. 数据库引擎不支持事务，只有InnoDB支持事务
 
-## 0x12. Spring是怎么解决循环依赖的
+## Spring是怎么解决循环依赖的
 
 TODO
