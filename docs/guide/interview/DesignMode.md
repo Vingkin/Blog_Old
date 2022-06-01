@@ -4,7 +4,7 @@ author: Vingkin
 date: 2022-4-24
 ---
 
-## 0x01. 单例模式
+## 单例模式
 
 **懒汉式线程不安全**
 
@@ -74,7 +74,7 @@ public class Singleton4 {
 
 ![image-20220531140801296](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/image-20220531140801296.png)
 
-## 0x02. 工厂模式
+## 工厂模式
 
 **意图：** 定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。
 
