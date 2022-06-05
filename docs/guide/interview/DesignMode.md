@@ -6,6 +6,8 @@ date: 2022-4-24
 
 ## 单例模式
 
+> [单例模式的应用场景 | HefeiJoe Blog](https://hefeijoe.github.io/post/singeleton/)
+
 **懒汉式线程不安全**
 
 ```java
@@ -72,7 +74,7 @@ public class Singleton4 {
 }
 ```
 
-![image-20220531140801296](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/image-20220531140801296.png)
+![双重校验锁](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/image-20220531140801296.png)
 
 ## 工厂模式
 

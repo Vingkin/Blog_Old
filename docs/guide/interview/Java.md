@@ -62,7 +62,11 @@ int n = i; // 自动拆箱
 
 ## List删除元素问题
 
-
+> [java中的fast-fail机制 - r1-12king - 博客园 (cnblogs.com)](https://www.cnblogs.com/r1-12king/p/16066013.html)
+>
+> [List移除元素_肆虐的毛豆的博客-CSDN博客_list删除元素](https://blog.csdn.net/zhaozuhao110/article/details/88116831)
+>
+> `fail-fast` 机制是Java集合(Collection)中的一种错误机制。当多个线程对同一个集合的内容进行操作时，就可能会产生`fail-fast`事件。或者一个线程对集合进行删除时也可能会产生。
 
 ## Comparable和Comparator的区别
 
