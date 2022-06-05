@@ -28,13 +28,6 @@ module.exports = {
         sidebar: {
             '/guide': [
                 {
-                    title: '主页',
-                    collapsable: false,
-                    children: [
-                        { title: '读前须知', path: '/guide/读前须知' }
-                    ]
-                },
-                {
                     title: 'Java',
                     collapsable: true,
                     children: [
