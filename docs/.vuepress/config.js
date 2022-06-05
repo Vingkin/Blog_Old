@@ -35,15 +35,21 @@ module.exports = {
                     ]
                 },
                 {
-                    title: '面试',
+                    title: 'Java',
                     collapsable: true,
                     children: [
+                        { title: 'Java基础', path: '/guide/interview/Java' },
+                        { title: 'Java并发', path: '/guide/interview/concurrent' },
+                        { title: 'JVM', path: '/guide/interview/JVM' }
+                    ]
+                },
+                {
+                    title: '系统设计',
+                    children: [
                         {
-                            title: 'Java',
+                            title: '基础',
                             children: [
-                                { title: 'Java基础', path: '/guide/interview/Java' },
-                                { title: 'Java并发', path: '/guide/interview/concurrent' },
-                                { title: 'JVM', path: '/guide/interview/JVM' }
+                                { title: '幂等', path: '/guide/interview/Idempotency' }
                             ]
                         },
                         {
@@ -54,31 +60,31 @@ module.exports = {
                                 { title: 'MyBatis', path: '/guide/interview/MyBatis' },
                                 { title: 'SpringBoot', path: '/guide/interview/SpringBoot' }
                             ]
-                        },
-                        {
-                            title: '数据库',
-                            children: [
-                                { title: 'MySQL', path: '/guide/interview/Mysql' },
-                                { title: 'Redis', path: '/guide/interview/Redis' }
-                            ]
-                        },
-                        {
-                            title: '计算机基础',
-                            children: [
-                                { title: '操作系统', path: '/guide/interview/OS' },
-                                { title: '计算机网络', path: '/guide/interview/ComputerNetwork' },
-                                { title: '数据结构', path: '/guide/interview/DataStructure' },
-                                { title: '设计模式', path: '/guide/interview/DesignMode' },
-                                { title: '代码模板', path: '/guide/interview/CodeTemplate' }
-                            ]
-                        },
-                        {
-                            title: '面经',
-                            children: [
-                                { title: '携程', path: 'guide/interview/xiecheng' },
-                                { title: '华为', path: 'guide/interview/huawei' }
-                            ]
                         }
+                    ]
+                },
+                {
+                    title: '数据库',
+                    children: [
+                        { title: 'MySQL', path: '/guide/interview/Mysql' },
+                        { title: 'Redis', path: '/guide/interview/Redis' }
+                    ]
+                },
+                {
+                    title: '计算机基础',
+                    children: [
+                        { title: '操作系统', path: '/guide/interview/OS' },
+                        { title: '计算机网络', path: '/guide/interview/ComputerNetwork' },
+                        { title: '数据结构', path: '/guide/interview/DataStructure' },
+                        { title: '设计模式', path: '/guide/interview/DesignMode' },
+                        { title: '代码模板', path: '/guide/interview/CodeTemplate' }
+                    ]
+                },
+                {
+                    title: '面经',
+                    children: [
+                        { title: '携程', path: 'guide/interview/xiecheng' },
+                        { title: '华为', path: 'guide/interview/huawei' }
                     ]
                 }
             ],
