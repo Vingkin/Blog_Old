@@ -86,6 +86,17 @@ module.exports = {
                         { title: '携程', path: 'guide/interview/xiecheng' },
                         { title: '华为', path: 'guide/interview/huawei' }
                     ]
+                },
+                {
+                    title: '分布式',
+                    children: [
+                        {
+                            title: 'ID生成器',
+                            children: [
+                                { title: '雪花算法', path: '/guide/interview/SnowFlake' }
+                            ]
+                        }
+                    ]
                 }
             ],
             '/ml': [
