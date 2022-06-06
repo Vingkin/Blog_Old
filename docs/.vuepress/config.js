@@ -22,7 +22,7 @@ module.exports = {
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' },
-            { text: '面试', icon: 'reco-blog', link: '/guide/读前须知' },
+            { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
             { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
         ],
         sidebar: {
