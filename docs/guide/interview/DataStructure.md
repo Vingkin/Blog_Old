@@ -339,3 +339,98 @@ e1 原本的长度在 250～253 之间，因为刚才的扩展空间，此时 e1
 因此，**压缩列表只会用于保存的节点数量不多的场景**，只要节点数量足够小，即使发生连锁更新，也是能接受的。
 
 虽说如此，Redis 针对压缩列表在设计上的不足，在后来的版本中，新增设计了两种数据结构：quicklist（Redis 3.2 引入） 和 listpack（Redis 5.0 引入）。这两种数据结构的设计目标，就是尽可能地保持压缩列表节省内存的优势，同时解决压缩列表的「连锁更新」的问题。
+
+## 前缀树
+
+```java
+public class Trie {
+
+    public static class TrieNode {
+        // count表示以当前单词结尾的单词数量
+        int count;
+        // prefix表示以该处节点之前的字符串为前缀的单词数量（包括当前节点）
+        int prefix;
+        TrieNode[] nextNode = new TrieNode[26];
+
+        public TrieNode() {
+            count = 0;
+            prefix = 0;
+        }
+    }
+
+    //插入一个新单词
+    public static void insert(TrieNode root, String str) {
+        if (root == null || str.length() == 0) {
+            return;
+        }
+        char[] c = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            //如果该分支不存在，创建一个新节点
+            if (root.nextNode[c[i] - 'a'] == null) {
+                root.nextNode[c[i] - 'a'] = new TrieNode();
+            }
+            root = root.nextNode[c[i] - 'a'];
+            root.prefix++;//注意，应该加在后面
+        }
+
+        //以该节点结尾的单词数+1
+        root.count++;
+    }
+
+    //查找该单词是否存在，如果存在返回数量，不存在返回-1
+    public static int search(TrieNode root, String str) {
+        if (root == null || str.length() == 0) {
+            return -1;
+        }
+        char[] c = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            //如果该分支不存在，表名该单词不存在
+            if (root.nextNode[c[i] - 'a'] == null) {
+                return -1;
+            }
+            //如果存在，则继续向下遍历
+            root = root.nextNode[c[i] - 'a'];
+        }
+
+        //如果count==0,也说明该单词不存在
+        if (root.count == 0) {
+            return -1;
+        }
+        return root.count;
+    }
+
+    //查询以str为前缀的单词数量
+    public static int searchPrefix(TrieNode root, String str) {
+        if (root == null || str.length() == 0) {
+            return -1;
+        }
+        char[] c = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            //如果该分支不存在，表名该单词不存在
+            if (root.nextNode[c[i] - 'a'] == null) {
+                return -1;
+            }
+            //如果存在，则继续向下遍历
+            root = root.nextNode[c[i] - 'a'];
+        }
+        return root.prefix;
+    }
+
+    public static void main(String[] args) {
+        TrieNode newNode = new TrieNode();
+        insert(newNode, "hello");
+
+        insert(newNode, "hello");
+        insert(newNode, "hello");
+        insert(newNode, "helloworld");
+        System.out.println(search(newNode, "hello"));
+        System.out.println(searchPrefix(newNode, "h"));
+    }
+
+    /**
+     输出：3   4
+     **/
+
+}
+```
+
