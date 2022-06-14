@@ -21,9 +21,9 @@ module.exports = {
         logo: '/logo.jpg',
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
-            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
-            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
+            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' },
+            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' }
         ],
         sidebar: {
             '/guide': [
@@ -69,8 +69,14 @@ module.exports = {
                         { title: '操作系统', path: '/guide/interview/OS' },
                         { title: '计算机网络', path: '/guide/interview/ComputerNetwork' },
                         { title: '数据结构', path: '/guide/interview/DataStructure' },
-                        { title: '设计模式', path: '/guide/interview/DesignMode' },
                         { title: '代码模板', path: '/guide/interview/CodeTemplate' }
+                    ]
+                },
+                {
+                    title: '设计模式',
+                    children: [
+                        { title: '单例多例', path: 'guide/interview/DesignMode' },
+                        { title: '适配器模式', path: 'guide/interview/AdapterMode' }
                     ]
                 },
                 {
