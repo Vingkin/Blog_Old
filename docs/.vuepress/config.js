@@ -81,6 +81,12 @@ module.exports = {
                     ]
                 },
                 {
+                    title: '海量数据',
+                    children: [
+                        { title: '如何从海量数据中找出高频词？', path: '/guide/interview/high_frequency_words' }
+                    ]
+                },
+                {
                     title: '分布式',
                     children: [
                         {
