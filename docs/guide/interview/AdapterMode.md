@@ -36,7 +36,7 @@ Sun公司在1996年公开了Java语言的数据库连接工具JDBC，JDBC使得J
 
 ## 实现方式
 
-![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/640)
+![适配器模式实现方式](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F.png)
 
 ### 类适配器
 
