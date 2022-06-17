@@ -567,7 +567,7 @@ class UnionFind {
 
 > [聊聊树状数组 Binary Indexed Tree](https://halfrost.com/binary_indexed_tree/)
 
-### 
+### 单点更新，区间求和
 
 ```java
 class TreeArray {
