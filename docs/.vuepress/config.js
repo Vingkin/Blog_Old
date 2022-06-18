@@ -82,8 +82,8 @@ module.exports = {
                 {
                     title: '面经',
                     children: [
-                        { title: '携程', path: 'guide/interview/xiecheng' },
-                        { title: '华为', path: 'guide/interview/huawei' }
+                        { title: '携程', path: 'guide/interview/xiecheng' }
+                        // { title: '华为', path: 'guide/interview/huawei' }
                     ]
                 },
                 {
