@@ -75,8 +75,20 @@ module.exports = {
                 {
                     title: '设计模式',
                     children: [
-                        { title: '单例多例', path: 'guide/interview/DesignMode' },
-                        { title: '适配器模式', path: 'guide/interview/AdapterMode' }
+                        { title: '软件设计原则', path: '/guide/interview/designmode/SoftwareDesignPrinciples' },
+                        {
+                            title: '创建者模式',
+                            children: [
+                                { title: '单例模式', path: '/guide/interview/designmode/Singleton' },
+                                { title: '杂', path: '/guide/interview/designmode/DesignMode' }
+                            ]
+                        },
+                        {
+                            title: '结构型模式',
+                            children: [
+                                { title: '适配器模式', path: '/guide/interview/designmode/AdapterMode' }
+                            ]
+                        }
                     ]
                 },
                 {
