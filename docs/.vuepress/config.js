@@ -80,11 +80,19 @@ module.exports = {
                             title: '创建者模式',
                             children: [
                                 { title: '单例模式', path: '/guide/interview/designmode/Singleton' },
+                                { title: '工厂模式', path: '/guide/interview/designmode/Factory' },
+                                { title: '原型模式', path: '/guide/interview/designmode/Prototype' },
                                 { title: '杂', path: '/guide/interview/designmode/DesignMode' }
                             ]
                         },
                         {
                             title: '结构型模式',
+                            children: [
+                                { title: '适配器模式', path: '/guide/interview/designmode/AdapterMode' }
+                            ]
+                        },
+                        {
+                            title: '行为型模式',
                             children: [
                                 { title: '适配器模式', path: '/guide/interview/designmode/AdapterMode' }
                             ]
