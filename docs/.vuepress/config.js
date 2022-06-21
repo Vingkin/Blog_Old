@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Vingkin',
-    description: '我是要成为火影的男人',
+    description: '~~~',
     // base: '/Blog/',
     theme: 'reco',
     icon: 'logo.jpg',
