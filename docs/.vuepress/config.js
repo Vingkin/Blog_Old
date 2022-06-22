@@ -82,6 +82,7 @@ module.exports = {
                                 { title: '单例模式', path: '/guide/interview/designmode/Singleton' },
                                 { title: '工厂模式', path: '/guide/interview/designmode/Factory' },
                                 { title: '原型模式', path: '/guide/interview/designmode/Prototype' },
+                                { title: '建造者模式', path: '/guide/interview/designmode/Builder' },
                                 { title: '杂', path: '/guide/interview/designmode/DesignMode' }
                             ]
                         },
