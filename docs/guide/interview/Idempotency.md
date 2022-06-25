@@ -55,7 +55,7 @@ date: 2022-6-5
 
    TOKEN机制如何实现？简单的说就是调用方在调用接口的时候先向后端请求一个全局ID（TOKEN），请求的时候携带这个全局ID一起请求，后端需要对这个全局ID校验来保证幂等操作，流程如下图：
 
-   ![TOKEN机制实现接口幂等性](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/640)
+   ![TOKEN机制实现接口幂等性](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/幂等1.png)
 
    主要的流程步骤如下：
 
