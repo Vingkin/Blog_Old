@@ -88,7 +88,8 @@ module.exports = {
                         {
                             title: '结构型模式',
                             children: [
-                                { title: '适配器模式', path: '/guide/interview/designmode/AdapterMode' }
+                                { title: '适配器模式', path: '/guide/interview/designmode/AdapterMode' },
+                                { title: '适配器模式', path: '/guide/interview/designmode/Proxy' }
                             ]
                         },
                         {
