@@ -22,6 +22,7 @@ module.exports = {
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
+            { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
             { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' },
             { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' }
         ],
@@ -73,34 +74,6 @@ module.exports = {
                     ]
                 },
                 {
-                    title: '设计模式',
-                    children: [
-                        { title: '软件设计原则', path: '/guide/interview/designmode/SoftwareDesignPrinciples' },
-                        {
-                            title: '创建者模式',
-                            children: [
-                                { title: '单例模式', path: '/guide/interview/designmode/Singleton' },
-                                { title: '工厂模式', path: '/guide/interview/designmode/Factory' },
-                                { title: '原型模式', path: '/guide/interview/designmode/Prototype' },
-                                { title: '建造者模式', path: '/guide/interview/designmode/Builder' }
-                            ]
-                        },
-                        {
-                            title: '结构型模式',
-                            children: [
-                                { title: '适配器模式', path: '/guide/interview/designmode/Adapter' },
-                                { title: '代理模式', path: '/guide/interview/designmode/Proxy' }
-                            ]
-                        },
-                        {
-                            title: '行为型模式',
-                            children: [
-                                { title: '适配器模式', path: '/guide/interview/designmode/Adapter' }
-                            ]
-                        }
-                    ]
-                },
-                {
                     title: '面经',
                     children: [
                         { title: '携程', path: 'guide/interview/xiecheng' }
@@ -122,6 +95,35 @@ module.exports = {
                                 { title: '雪花算法', path: '/guide/interview/SnowFlake' }
                             ]
                         }
+                    ]
+                }
+            ],
+            '/designmode': [
+                { title: '软件设计原则', path: '/designmode/SoftwareDesignPrinciples' },
+                {
+                    title: '创建者模式',
+                    collapsable: true,
+                    children: [
+                        { title: '单例模式', path: '/designmode/Singleton' },
+                        { title: '工厂模式', path: '/designmode/Factory' },
+                        { title: '原型模式', path: '/designmode/Prototype' },
+                        { title: '建造者模式', path: '/designmode/Builder' }
+                    ]
+                },
+                {
+                    title: '结构型模式',
+                    collapsable: true,
+                    children: [
+                        { title: '适配器模式', path: '/designmode/Adapter' },
+                        { title: '代理模式', path: '/designmode/Proxy' }
+                    ]
+                },
+                {
+                    title: '行为型模式',
+                    collapsable: true,
+                    children: [
+                        { title: '适配器模式', path: '/designmode/Adapter' },
+                        { title: '代理模式', path: '/designmode/Proxy' }
                     ]
                 }
             ],
