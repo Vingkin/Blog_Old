@@ -26,7 +26,7 @@ Java中的代理按照代理类生成时机不同又分为**静态代理**和**�
 
 如果要买火车票的话，需要去火车站买票，坐车到火车站，排队等一系列的操作，显然比较麻烦。而火车站在多个地方都有代售点，我们去代售点买票就方便很多了。这个例子其实就是典型的代理模式，火车站是目标对象，代售点是代理对象。类图如下：
 
-<img src="C:/Users/18300/Desktop/设计模式/Java设计模式资料day03/笔记/img/静态代理.png" style="zoom:80%;" />
+<img src="https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/interview/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86.png" style="zoom:80%;" />
 
 代码如下：
 
@@ -268,7 +268,7 @@ public class Client {
   
       public SellTickets getProxyObject() {
           SellTickets sellTickets = (SellTickets) Proxy.newProxyInstance(
-              station.getClass().getClassLoader(),
+              	station.getClass().getClassLoader(),
                   station.getClass().getInterfaces(),
                   new InvocationHandler() {
                       
@@ -295,13 +295,12 @@ public class Client {
   }
   ```
 
-
 执行流程如下：
 
-    1. 在测试类中通过代理对象调用sell()方法
-    2. 根据多态的特性，执行的是代理类（$Proxy0）中的sell()方法
-    3. 代理类（$Proxy0）中的sell()方法中又调用了InvocationHandler接口的子实现类对象的invoke方法
-    4. invoke方法通过反射执行了真实对象所属类(TrainStation)中的sell()方法
+1. 在测试类中通过代理对象调用sell()方法
+2. 根据多态的特性，执行的是代理类（$Proxy0）中的sell()方法
+3. 代理类（$Proxy0）中的sell()方法中又调用了InvocationHandler接口的子实现类对象的invoke方法
+4. invoke方法通过反射执行了真实对象所属类(TrainStation)中的sell()方法
 
 ## CGLIB动态代理
 
