@@ -99,7 +99,8 @@ public class ProxyFactory {
                 Class<?>[] interfaces ： 真实对象所实现的接口，代理模式真实对象和代理对象实现相同的接口
                 InvocationHandler h ： 代理对象的调用处理程序
          */
-        SellTickets proxyObject = (SellTickets) Proxy.newProxyInstance(station.getClass().getClassLoader(),
+        SellTickets proxyObject = (SellTickets) Proxy.newProxyInstance(
+            	station.getClass().getClassLoader(),
                 station.getClass().getInterfaces(),
                 new InvocationHandler() {
                     /*
@@ -266,7 +267,8 @@ public class Client {
       private TrainStation station = new TrainStation();
   
       public SellTickets getProxyObject() {
-          SellTickets sellTickets = (SellTickets) Proxy.newProxyInstance(station.getClass().getClassLoader(),
+          SellTickets sellTickets = (SellTickets) Proxy.newProxyInstance(
+              station.getClass().getClassLoader(),
                   station.getClass().getInterfaces(),
                   new InvocationHandler() {
                       
