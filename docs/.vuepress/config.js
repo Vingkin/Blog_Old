@@ -22,9 +22,9 @@ module.exports = {
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
+            { text: '操作系统', icon: 'reco-blog', link: '/OS/OS1' },
             { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
-            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' },
-            { text: 'TimeLine', icon: 'reco-date', link: '/timeline/' }
+            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
         ],
         sidebar: {
             '/guide': [
@@ -97,6 +97,11 @@ module.exports = {
                         }
                     ]
                 }
+            ],
+            '/OS': [
+                { title: '操作系统上', path: '/OS/OS1' },
+                { title: '操作系统中', path: '/OS/OS2' },
+                { title: '操作系统下', path: '/OS/OS3' }
             ],
             '/designmode': [
                 { title: '软件设计原则', path: '/designmode/SoftwareDesignPrinciples' },
