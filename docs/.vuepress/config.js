@@ -122,8 +122,7 @@ module.exports = {
                     title: '行为型模式',
                     collapsable: true,
                     children: [
-                        { title: '适配器模式', path: '/designmode/Adapter' },
-                        { title: '代理模式', path: '/designmode/Proxy' }
+                        { title: '模板方法模式', path: '/designmode/Template' }
                     ]
                 }
             ],
