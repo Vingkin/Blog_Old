@@ -60,6 +60,8 @@ BeanFactory是一个类工厂，与传统类工厂不同的是，BeanFactory是�
 
 BeanFactory是Spring容器的顶层接口，Spring为BeanFactory提供了很多实现，比较常用的比如`AnnotationConfigApplicationContext`，常用的方法比如`getBean()`获取指定名称的Bean。
 
+`BeanFactory`本身并不会自动解析像`@Bean`,`@Autowired`,`@Resources`这些注解的功能，如果想要通过`BeanFactory`实现这些功能，则需要向`BeanFactory`添加一些后置处理器来解析这些注解，从而将相关Bean加入到IoC容器中。
+
 ## Spring是如何管理Bean的
 
 Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行配置。
