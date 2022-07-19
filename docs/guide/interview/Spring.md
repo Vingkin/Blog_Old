@@ -31,18 +31,18 @@ date: 2022-4-24
 Spring的核心是IoC和AOP
 
 1. `IoC`叫反转控制，就是将对象的控制权交由Spring框架来管理。IOC可以帮助我们维护对象与对象之间的依赖关系，降低对象之间的耦合度。
-
+   
    说到IoC就不得不说DI，IoC是通过DI来实现的。由于IoC这个词汇比较抽象而DI却更直观，所以很多时候我们就用DI来替代它，在很多时候我们简单地将IoC和DI划等号，这是一种习惯。而实现依赖注入的关键是IoC容器，它的本质就是一个工厂。
-
+   
    DI主要有两种注入方式：
-
+   
    1. 构造方法注入
    2. setter方法注入
 
 2. `AOP`是面向切面编程的意思。将那些与业务无关却为业务模块共同调用的逻辑或责任（如事务处理、日志管理和权限管理等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，也有利于未来的可拓展性和可维护性。比如@Transactional注解就是通过AOP实现的。
-
+   
    Spring AOP是基于动态代理的。如果代理对象实现了某个接口，那么Spring AOP会使用JDK Proxy通过接口去创建代理对象，对于没有实现接口的对象，Spring AOP会使用Cglib生成一个被代理对象的子类来作为代理。
-
+   
    当然也可以使用AspectJ！
 
 ## 说一说对Spring容器的了解
@@ -78,17 +78,17 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 
 默认情况下，Bean在Spring容器中是单例的，可以通过@Scope注解修改Bean的作用域。
 
-| 类型          | 说明                                                         |
-| ------------- | ------------------------------------------------------------ |
-| singleton     | 单例Bean，默认                                               |
-| prototype     | 每次请求都会创建一个新的bean实例                             |
-| request       | 每一次HTTP请求都会产生一个新的Bean                           |
-| session       | 同一个HTTP Session共享一个Bean，不同的HTTP Session使用不同的Bean |
-| globalSession | 同一个全局的Session共享一个Bean，一般用于Portlet环境         |
+| 类型          | 说明                                                       |
+| ----------- | -------------------------------------------------------- |
+| singleton   | 单例Bean，默认作用域，IoC容器启动时创建，IoC容器销毁时销毁                       |
+| prototype   | 每次请求都会创建一个新的bean实例，每次使用时创建，销毁不归容器管，自行调用销毁方法              |
+| request     | 每一次HTTP请求（浏览器刷新页面）都会产生一个新的Bean                           |
+| session     | 同一个HTTP Session共享一个Bean，不同的HTTP Session（不同的浏览器）使用不同的Bean |
+| application | 应用程序启动时bean创建，应用程序销毁时bean销毁，应用程序值得是ServletContext        |
 
 ## Bean的生命周期
 
-![Bean的生命周期](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/7EF8F66C3DFA7434E4CA11B47CF8F1F7.png)
+![](C:\Users\18300\Desktop\7EF8F66C3DFA7434E4CA11B47CF8F1F7.png)
 
 1. 解析类得到`BeanDefinition`
 2. 通过构造方法实例化得到一个对象（如果有多个构造方法，则要推断使用）
@@ -101,10 +101,61 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 9. 使用Bean
 10. Spring容器关闭时调用`DisposableBean`中的`destory()`方法
 
-**整个过程是Spring容器自动管理的，其中有两个环节我们可以进行干预**
+```java
+@Slf4j
+@Component
+public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor, DestructionAwareBeanPostProcessor {
+    @Override
+    // 实例化前（即调用构造方法前）执行的方法
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        if (beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<<<<<<< 实例化前执行，如@PreDestroy");
+        // 返回null保持原有对象不变，返回不为null，会替换掉原有对象
+        return null;
+    }
 
-1. 我们可以自定义初始化方法，并在该方法前增加`@PostConstruct`注解，Spring容器将在调用setBeanFactory()方法之后调用该方法
-2. 我们可以自定义销毁方法，并在该方法前增加`@PreDestory`注解，Bean将在自身销毁前调用这个方法
+    @Override
+    // 实例化后执行的方法
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        if (beanName.equals("lifeCycleBean")) {
+            log.debug("<<<<<<<<<<< 实例化后执行，这里如果返回 false 会跳过依赖注入阶段");
+            // return false;
+        }
+        return true;
+    }
+
+    @Override
+    // 依赖注入阶段执行的方法
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        if (beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<<<<<<< 依赖注入阶段执行，如@Autowired、@Value、@Resource");
+        return pvs;
+    }
+
+    @Override
+    // 销毁前执行的方法
+    public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
+        if(beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<<<<<<<销毁之前执行");
+    }
+
+    @Override
+    // 初始化之前执行的方法
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if(beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<<<<<<< 初始化之前执行，这里返回的对象会替换掉原本的bean，如 @PostConstruct、@ConfigurationProperties");
+        return bean;
+    }
+
+    @Override
+    // 初始化之后执行的方法
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if(beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<<<<<<< 初始化之后执行，这里返回的对象会替换掉原本的bean，如 代理增强");
+        return bean;
+    }
+}
+```
 
 ## 单例Bean的线程安全问题了解吗
 
@@ -124,9 +175,21 @@ Spring通过IoC来管理Bean，我们可以通过XML配置或者注解来进行�
 1. `@Component`注解作用于类，通常是通过类路径扫描（`@ComponentScan`）自动侦测以及自动装配到Spring容器中。而@Bean注解作用于方法，将当前方法的返回值存入IOC容器。
 2. `@Bean`注解比`@Component`注解的自定义性更强，而且很多地方我们只能通过`@Bean`注解来注册Bean。比如当我们引用第三方库中的类需要装配到Spring容器中时，只能通过`@Bean`来实现。
 
+## AspectJ
+
+AspectJ与Spring AOP和Cglib实现AOP是有所不同的，AspectJ是在字节码的层面上实现的，另外两个是通过代理实现的。
+
+AspectJ相当于在被增强方法的class文件的对应位置调用增强方法实现AOP
+
+对于AspectJ的实现也有两种，一种在编译阶段实现，一种在类加载阶段实现
+
+1. 编译阶段：通过在pom文件中配置AspectJ编译插件实现
+
+2. 类加载阶段：通过配置虚拟机参数`-javaagent`实现，具体类的样式可以通过阿里巴巴的`arthas`插件看到
+
 ## Spring AOP和AspectJ AOP的区别？
 
-1. Spring AOP输入运行时增强，而AspectJ是编译时增强。
+1. Spring AOP输入运行时增强，而AspectJ是编译时或者类加载时增强。
 2. Spring AOP基于代理，而AspectJ基于字节码操作。
 
 ## 说说AOP的应用场景
@@ -155,15 +218,15 @@ Spring AOP为IoC的使用提供了更多的便利。一方面，应用可以直�
 
 Spring在`TransactionDefinition`接口中规定了其中类型的事务传播行为。
 
-| 事务传播类型              | 说明                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| PROPAGATION_REQUIRED      | 如果当前没有事务，则新建一个事务；如果已存在一个事务，在加入到这个事务中。这时最常见的选择，也是`@Transactional`的默认选项。 |
+| 事务传播类型                    | 说明                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------ |
+| PROPAGATION_REQUIRED      | 如果当前没有事务，则新建一个事务；如果已存在一个事务，在加入到这个事务中。这时最常见的选择，也是`@Transactional`的默认选项。                     |
 | PROPAGATION_REQUIRED_NEW  | 创建一个新的事务，如果当前存在事务，则把当前事务挂起。也就是说不管外部方法是否开启事务，REQUIRES_NEW修饰的内部方法都会开启自己的新事务，且开启的事务互相独立，互不干扰。 |
-| PROPAGATION_NESTED        | 如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行，如果当前没有事务，则等价于PROPAGATION_REQUIRED（nested：嵌套的） |
-| PROPAGATION_MANDATORY     | 如果当前存在事务，则加入该事务；如果不存在则抛出异常。（mandatory：强制性） |
-| PROPAGATION_SUPPORTS      | 如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式继续运行 |
-| PROPAGATION_NOT_SUPPORTED | 以非事务方式运行，如果当前存在事务，则把当前事务挂起         |
-| PROPAGATION_NEVER         | 以非事务方式运行，如果当前存在事务，则抛出异常               |
+| PROPAGATION_NESTED        | 如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行，如果当前没有事务，则等价于PROPAGATION_REQUIRED（nested：嵌套的）               |
+| PROPAGATION_MANDATORY     | 如果当前存在事务，则加入该事务；如果不存在则抛出异常。（mandatory：强制性）                                                 |
+| PROPAGATION_SUPPORTS      | 如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式继续运行                                                       |
+| PROPAGATION_NOT_SUPPORTED | 以非事务方式运行，如果当前存在事务，则把当前事务挂起                                                                 |
+| PROPAGATION_NEVER         | 以非事务方式运行，如果当前存在事务，则抛出异常                                                                    |
 
 > 若是错误的配置了以下三种事务传播行为，事务将不会发生回滚。
 
