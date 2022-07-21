@@ -14,8 +14,7 @@ module.exports = {
         }
     },
     themeConfig: {
-        lastUpdated: true,
-        // lastUpdatedText: ,
+        lastUpdated: '上次更新',
         subSidebar: 'auto',
         author: 'Vingkin',
         logo: '/logo.jpg',
@@ -23,6 +22,7 @@ module.exports = {
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
             { text: '操作系统', icon: 'reco-blog', link: '/OS/OS1' },
+            { text: 'Netty', icon: 'reco-blog', link: '/netty/读前须知' },
             { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
             { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
         ],
@@ -50,6 +50,7 @@ module.exports = {
                             title: '开发框架',
                             children: [
                                 { title: 'Spring', path: '/guide/interview/Spring' },
+                                { title: 'Spring高级', path: '/guide/interview/spriiiiing' },
                                 { title: 'SpringMVC', path: '/guide/interview/SpringMVC' },
                                 { title: 'MyBatis', path: '/guide/interview/MyBatis' },
                                 { title: 'SpringBoot', path: '/guide/interview/SpringBoot' }
@@ -131,6 +132,19 @@ module.exports = {
                     ]
                 }
             ],
+            '/netty': [
+                { title: '读前须知', path: '/netty/读前须知' },
+                {
+                    title: 'NIO基础',
+                    collapsable: true,
+                    children: [
+                        { title: '三大组件', path: '/netty/nio/three_component' },
+                        { title: 'ByteBuffer', path: '/netty/nio/bytebuffer' },
+                        { title: '文件编程', path: '/netty/nio/file_programming' }
+                        // { title: '网络编程', path: '/netty/nio/network_programming' }
+                    ]
+                }
+            ],
             '/ml': [
                 {
                     title: '机器学习',
@@ -152,7 +166,7 @@ module.exports = {
             ]
         },
         sidebarDepth: 2,
-        searchMaxSuggestoins: 10,
+        searchMaxSuggestions: 10,
         serviceWorker: {
             updatePopup: {
                 message: '有新的内容.',
