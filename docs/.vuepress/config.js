@@ -143,6 +143,14 @@ module.exports = {
                         { title: '网络编程', path: '/netty/nio/network_programming' },
                         { title: 'NIO vs. BIO', path: '/netty/nio/NIOvsBIO' }
                     ]
+                },
+                {
+                    title: 'Netty入门',
+                    collapsable: true,
+                    children: [
+                        { title: '概述', path: '/netty/netty1/summary' },
+                        { title: 'Hello World', path: '/netty/netty1/helloworld' }
+                    ]
                 }
             ],
             '/ml': [
