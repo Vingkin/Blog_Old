@@ -22,7 +22,7 @@ module.exports = {
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
             { text: '操作系统', icon: 'reco-blog', link: '/OS/OS1' },
-            { text: 'Netty', icon: 'reco-blog', link: '/netty/读前须知' },
+            { text: 'Netty', icon: 'reco-blog', link: '/netty/nio/three_component' },
             { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
             { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
         ],
@@ -133,15 +133,15 @@ module.exports = {
                 }
             ],
             '/netty': [
-                { title: '读前须知', path: '/netty/读前须知' },
                 {
                     title: 'NIO基础',
                     collapsable: true,
                     children: [
                         { title: '三大组件', path: '/netty/nio/three_component' },
                         { title: 'ByteBuffer', path: '/netty/nio/bytebuffer' },
-                        { title: '文件编程', path: '/netty/nio/file_programming' }
-                        // { title: '网络编程', path: '/netty/nio/network_programming' }
+                        { title: '文件编程', path: '/netty/nio/file_programming' },
+                        { title: '网络编程', path: '/netty/nio/network_programming' },
+                        { title: 'NIO vs. BIO', path: '/netty/nio/NIOvsBIO' }
                     ]
                 }
             ],
