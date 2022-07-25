@@ -336,6 +336,8 @@ sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:8080]
 > - 第一次触发了 ssckey 上的 accept 事件，没有移除 ssckey
 > - 第二次触发了 sckey 上的 read 事件，但这时 selectedKeys 中还有上次的 ssckey ，在处理时因为没有真正的 serverSocket 连上了，就会导致空指针异常
 
+<img src="https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220725084505.png" title="" alt="" width="667">
+
 ### 💡 cancel 的作用
 
 > cancel 会取消注册在 selector 上的 channel，并从 keys 集合中删除 key 后续不会再监听事件
@@ -609,6 +611,8 @@ public class WriteClient {
 
 ## 更进一步
 
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220725085803.png)
+
 ### 💡 利用多线程优化
 
 > 现在都是多核 cpu，设计时要充分考虑别让 cpu 的力量被白白浪费
@@ -617,8 +621,8 @@ public class WriteClient {
 
 分两组选择器
 
-- 单线程配一个选择器，专门处理 accept 事件
-- 创建 cpu 核心数的线程，每个线程配一个选择器，轮流处理 read 事件
+- 单线程配一个选择器（boss），专门处理 accept 事件
+- 创建 cpu 核心数的线程，每个线程配一个选择器（worker），轮流处理 read 事件
 
 ```java
 public class ChannelDemo7 {
@@ -636,6 +640,7 @@ public class ChannelDemo7 {
 
         public void register() throws IOException {
             if (!start) {
+                start = true;
                 ServerSocketChannel ssc = ServerSocketChannel.open();
                 ssc.bind(new InetSocketAddress(8080));
                 ssc.configureBlocking(false);
@@ -645,7 +650,6 @@ public class ChannelDemo7 {
                 workers = initEventLoops();
                 new Thread(this, "boss").start();
                 log.debug("boss start...");
-                start = true;
             }
         }
 
