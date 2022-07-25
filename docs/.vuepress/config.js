@@ -149,7 +149,8 @@ module.exports = {
                     collapsable: true,
                     children: [
                         { title: '概述', path: '/netty/netty1/summary' },
-                        { title: 'Hello World', path: '/netty/netty1/helloworld' }
+                        { title: 'Hello World', path: '/netty/netty1/helloworld' },
+                        { title: '组件', path: '/netty/netty1/component' }
                     ]
                 }
             ],
