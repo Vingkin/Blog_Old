@@ -133,6 +133,7 @@ module.exports = {
                 }
             ],
             '/netty': [
+                { title: 'Netty', collapsable: false },
                 {
                     title: 'NIO基础',
                     collapsable: true,
@@ -150,7 +151,8 @@ module.exports = {
                     children: [
                         { title: '概述', path: '/netty/netty1/summary' },
                         { title: 'Hello World', path: '/netty/netty1/helloworld' },
-                        { title: '组件', path: '/netty/netty1/component' }
+                        { title: '组件', path: '/netty/netty1/component' },
+                        { title: '双向通信', path: '/netty/netty1/two_way_communication' }
                     ]
                 }
             ],

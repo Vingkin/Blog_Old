@@ -39,7 +39,7 @@ selector 单从字面意思不好理解，需要结合服务器的设计演化�
 
 <img src="https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220721171657.png" title="" alt="" data-align="center">
 
-### ⚠️ 多线程版缺点
+### 多线程版缺点⚠️
 
 - 内存占用高
 - 线程上下文切换成本高
@@ -49,7 +49,7 @@ selector 单从字面意思不好理解，需要结合服务器的设计演化�
 
 <img src="https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220721171729.png" title="" alt="" data-align="left">
 
-#### ⚠️ 线程池版缺点
+#### 线程池版缺点⚠️
 
 - 阻塞模式下，线程仅能处理一个 socket 连接
 - 仅适合短连接场景

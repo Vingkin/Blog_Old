@@ -7,7 +7,7 @@ date: 2022-7-21
 
 ## FileChannel
 
-### ⚠️ FileChannel 工作模式
+### FileChannel 工作模式⚠️
 
 > FileChannel 只能工作在阻塞模式下
 
@@ -319,7 +319,7 @@ Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
 });
 ```
 
-### ⚠️ 删除很危险
+### 删除很危险⚠️
 
 > 删除是危险操作，确保要递归删除的文件夹没有重要内容
 

@@ -49,7 +49,7 @@ date: 2022-7-22
   
   ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/0036.png)
 
-### 🔖 参考
+### 参考🔖
 
 UNIX 网络编程 - 卷 I
 
@@ -200,7 +200,7 @@ public class AioDemo1 {
 - 响应文件读取成功的是另一个线程 Thread-5
 - 主线程并没有 IO 操作阻塞
 
-### 💡 守护线程
+### 守护线程💡
 
 默认文件 AIO 使用的线程都是守护线程，所以最后要执行 `System.in.read()` 以避免守护线程意外结束
 

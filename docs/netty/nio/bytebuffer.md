@@ -104,7 +104,7 @@ compact 方法，是把未读完的部分向前压缩，然后切换至写模式
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/0022.png)
 
-### 💡 调试工具类
+### 调试工具类💡
 
 ```java
 public class ByteBufferUtil {
@@ -368,7 +368,7 @@ class java.nio.HeapCharBuffer
 你好
 ```
 
-### ⚠️ Buffer 的线程安全
+### Buffer 的线程安全⚠️
 
 > Buffer 是**非线程安全的**
 
