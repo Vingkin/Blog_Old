@@ -1,6 +1,7 @@
 module.exports = {
     title: 'Vingkin',
     description: '~~~',
+    port: '12345',
     // base: '/Blog/',
     theme: 'reco',
     icon: 'logo.jpg',
@@ -153,6 +154,15 @@ module.exports = {
                         { title: 'Hello World', path: '/netty/netty1/helloworld' },
                         { title: '组件', path: '/netty/netty1/component' },
                         { title: '双向通信', path: '/netty/netty1/two_way_communication' }
+                    ]
+                },
+                {
+                    title: 'Netty进阶',
+                    collapsable: true,
+                    children: [
+                        { title: '粘包与半包', path: '/netty/netty2/bag' },
+                        { title: '协议的设计与解析', path: '/netty/netty2/protocol' },
+                        { title: '聊天室案例', path: '/netty/netty2/chatroom' }
                     ]
                 }
             ],

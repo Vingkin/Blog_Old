@@ -1295,6 +1295,38 @@ public static boolean release(Object msg) {
 
 ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/0011.png)
 
+```java
+public class TestSlice {
+    public static void main(String[] args) {
+        ByteBuf buf = ByteBufAllocator.DEFAULT.buffer(10);
+        buf.writeBytes(new byte[]{'a','b','c','d','e','f','g','h','i','j'});
+        log(buf);
+
+        // 在切片过程中，没有发生数据复制
+        ByteBuf f1 = buf.slice(0, 5);
+        f1.retain(); // 引用计数加一
+        // 'a','b','c','d','e', 'x'
+        ByteBuf f2 = buf.slice(5, 5);
+        f2.retain();
+        log(f1);
+        log(f2);
+
+        System.out.println("释放原有 byteBuf 内存");
+        buf.release();
+        log(buf); // 此时buf没有被释放
+        log(f1);
+
+
+        f1.release();
+        f2.release();
+        /*System.out.println("========================");
+        f1.setByte(0, 'b');
+        log(f1);
+        log(buf);*/
+    }
+}
+```
+
 例，原始 ByteBuf 进行一些初始操作
 
 ```java
@@ -1314,7 +1346,7 @@ System.out.println(ByteBufUtil.prettyHexDump(origin));
 +--------+-------------------------------------------------+----------------+
 ```
 
-这时调用 slice 进行切片，无参 slice 是从原始 ByteBuf 的 read index 到 write index 之间的内容进行切片，切片后的 max capacity 被固定为这个区间的大小，因此不能追加 write
+这时调用 slice 进行切片，无参 slice 是从原始 ByteBuf 的 read index 到 write index 之间的内容进行切片，**切片后的 max capacity 被固定为这个区间的大小**，因此不能追加 write
 
 ```java
 ByteBuf slice = origin.slice();
