@@ -1,5 +1,4 @@
 ---
-
 title: 聊天室案例
 author: vingkin
 date: 2022-7-27
@@ -427,7 +426,7 @@ public class GroupMembersRequestMessageHandler extends SimpleChannelInboundHandl
 
 ## 聊天室业务-退出
 
-```
+```java
 @Slf4j
 @ChannelHandler.Sharable
 public class QuitHandler extends ChannelInboundHandlerAdapter {
