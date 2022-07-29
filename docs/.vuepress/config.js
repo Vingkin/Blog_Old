@@ -134,7 +134,6 @@ module.exports = {
                 }
             ],
             '/netty': [
-                { title: 'Netty', collapsable: false },
                 {
                     title: 'NIO基础',
                     collapsable: true,
@@ -150,19 +149,27 @@ module.exports = {
                     title: 'Netty入门',
                     collapsable: true,
                     children: [
-                        { title: '概述', path: '/netty/netty1/summary' },
-                        { title: 'Hello World', path: '/netty/netty1/helloworld' },
-                        { title: '组件', path: '/netty/netty1/component' },
-                        { title: '双向通信', path: '/netty/netty1/two_way_communication' }
+                        { title: '概述', path: '/netty/basics/summary' },
+                        { title: 'Hello World', path: '/netty/basics/helloworld' },
+                        { title: '组件', path: '/netty/basics/component' },
+                        { title: '双向通信', path: '/netty/basics/two_way_communication' }
                     ]
                 },
                 {
                     title: 'Netty进阶',
                     collapsable: true,
                     children: [
-                        { title: '粘包与半包', path: '/netty/netty2/bag' },
-                        { title: '协议的设计与解析', path: '/netty/netty2/protocol' },
-                        { title: '聊天室案例', path: '/netty/netty2/chatroom' }
+                        { title: '粘包与半包', path: '/netty/advance/bag' },
+                        { title: '协议的设计与解析', path: '/netty/advance/protocol' },
+                        { title: '聊天室案例', path: '/netty/advance/chatroom' }
+                    ]
+                },
+                {
+                    title: 'Netty优化与源码',
+                    collapsable: true,
+                    children: [
+                        { title: '优化', path: '/netty/optimization/optimization' },
+                        { title: '源码', path: '/netty/optimization/source_code' }
                     ]
                 }
             ],
