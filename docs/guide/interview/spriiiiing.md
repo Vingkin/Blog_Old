@@ -163,14 +163,7 @@ Spring 的发展历史较为悠久，因此很多资料还在讲解它较旧的�
 
 **com.itheima.a03** 包
 
-```mermaid
-graph LR
-
-创建 --> 依赖注入
-依赖注入 --> 初始化
-初始化 --> 可用
-可用 --> 销毁
-```
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220809110503.png)
 
 创建前后的增强
 
@@ -365,36 +358,11 @@ public class TestMethodTemplate {
 
 Java 配置类不包含 BeanFactoryPostProcessor 的情况
 
-```mermaid
-sequenceDiagram 
-participant ac as ApplicationContext
-participant bfpp as BeanFactoryPostProcessor
-participant bpp as BeanPostProcessor
-participant config as Java配置类
-ac ->> bfpp : 1. 执行 BeanFactoryPostProcessor
-ac ->> bpp : 2. 注册 BeanPostProcessor
-ac ->> +config : 3. 创建和初始化
-bpp ->> config : 3.1 依赖注入扩展(如 @Value 和 @Autowired)
-bpp ->> config : 3.2 初始化扩展(如 @PostConstruct)
-ac ->> config : 3.3 执行 Aware 及 InitializingBean
-config -->> -ac : 3.4 创建成功
-```
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220809110602.png)
 
 Java 配置类包含 BeanFactoryPostProcessor 的情况，因此要创建其中的 BeanFactoryPostProcessor 必须提前创建 Java 配置类，而此时的 BeanPostProcessor 还未准备好，导致 @Autowired 等注解失效
 
-```mermaid
-sequenceDiagram 
-participant ac as ApplicationContext
-participant bfpp as BeanFactoryPostProcessor
-participant bpp as BeanPostProcessor
-participant config as Java配置类
-ac ->> +config : 3. 创建和初始化
-ac ->> config : 3.1 执行 Aware 及 InitializingBean
-config -->> -ac : 3.2 创建成功
-
-ac ->> bfpp : 1. 执行 BeanFactoryPostProcessor
-ac ->> bpp : 2. 注册 BeanPostProcessor
-```
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220809110628.png)
 
 对应代码
 
@@ -553,37 +521,13 @@ com.itheima.demo.cycle.F@6622fc65
 
 对于单例对象来讲，依赖注入仅发生了一次，后续再没有用到多例的 F，因此 E 用的始终是第一次依赖注入的 F
 
-```mermaid
-graph LR
-
-e1(e 创建)
-e2(e set 注入 f)
-
-f1(f 创建)
-
-e1-->f1-->e2
-```
+![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220809110704.png)
 
 解决
 
 * 仍然使用 @Lazy 生成代理
 * 代理对象虽然还是同一个，但当每次**使用代理对象的任意方法**时，由代理创建新的 f 对象
-
-```mermaid
-graph LR
-
-e1(e 创建)
-e2(e set 注入 f代理)
-
-f1(f 创建)
-f2(f 创建)
-f3(f 创建)
-
-e1-->e2
-e2--使用f方法-->f1
-e2--使用f方法-->f2
-e2--使用f方法-->f3
-```
+* ![](https://vingkin-1304361015.cos.ap-shanghai.myqcloud.com/os/20220809110738.png)
 
 ```java
 @Component
@@ -868,8 +812,6 @@ public class Client {
     }
 }
 ```
-
-
 
 #### 收获💡
 

@@ -400,8 +400,12 @@ java.net.SocketTimeoutException: connect timed out
 ### 4）TCP_NODELAY
 
 - 属于 SocketChannal 参数
+- false：开启了nagle算法
+- true：关闭了nagle算法（推荐）
 
 ### 5）SO_SNDBUF & SO_RCVBUF
+
+> 发送缓冲区和接受缓冲区，最好别修改
 
 - SO_SNDBUF 属于 SocketChannal 参数
 - SO_RCVBUF 既可用于 SocketChannal 参数，也可以用于 ServerSocketChannal 参数（建议设置到 ServerSocketChannal 上）
