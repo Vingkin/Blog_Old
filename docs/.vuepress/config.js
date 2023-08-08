@@ -1,10 +1,9 @@
 module.exports = {
-    title: 'Vingkin',
+    title: 'Vingkin的学习文档',
     description: '~~~',
-    port: '12345',
     base: '/Blog/',
     theme: 'reco',
-    icon: 'logo.jpg',
+    // icon: 'logo.jpg',
     timeline: true,
     markdown: {
         lineNumbers: true//代码显示行号
