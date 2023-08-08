@@ -2,7 +2,7 @@ module.exports = {
     title: 'Vingkin',
     description: '~~~',
     port: '12345',
-    // base: '/Blog/',
+    base: '/Blog/',
     theme: 'reco',
     icon: 'logo.jpg',
     timeline: true,
