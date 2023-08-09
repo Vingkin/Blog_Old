@@ -24,7 +24,7 @@ module.exports = {
             { text: '操作系统', icon: 'reco-blog', link: '/OS/OS1' },
             { text: 'Netty', icon: 'reco-blog', link: '/netty/nio/three_component' },
             { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
-            { text: '机器学习', icon: 'reco-document', link: '/ml/读前须知' }
+            { text: '机器学习', icon: 'reco-document', link: '/ml/YOLOv3' }
         ],
         sidebar: {
             '/guide': [
@@ -173,13 +173,6 @@ module.exports = {
                 }
             ],
             '/ml': [
-                {
-                    title: '机器学习',
-                    collapsable: false,
-                    children: [
-                        { title: '读前须知', path: '/ml/读前须知' }
-                    ]
-                },
                 {
                     title: '论文解读',
                     collapsable: true,
