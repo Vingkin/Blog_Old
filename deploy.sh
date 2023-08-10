@@ -18,9 +18,9 @@ git push -f git@github.com:vingkin/Blog.git master:gh-pages
 
 cd -
 # git init
-git add docs/
-git commit -m 'update docs'
-git pull origin docs
-git push origin docs
-
-cd -
+#git add docs/
+#git commit -m 'update docs'
+#git pull origin docs
+#git push origin docs
+#
+#cd -
