@@ -19,14 +19,30 @@ module.exports = {
         author: 'Vingkin',
         logo: '/logo.gif',
         nav: [
-            { text: 'Home', icon: 'reco-home', link: '/' },
-            { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
-            { text: '操作系统', icon: 'reco-blog', link: '/OS/OS1' },
-            { text: 'Netty', icon: 'reco-blog', link: '/netty/nio/three_component' },
-            { text: '设计模式', icon: 'reco-email', link: '/designmode/SoftwareDesignPrinciples' },
-            { text: '机器学习', icon: 'reco-document', link: '/ml/YOLOv3' }
+            { text: 'Home', link: '/' },
+            { text: '面试', link: '/guide/interview/Java' },
+            { text: '操作系统', link: '/OS/OS1' },
+            { text: 'Netty', link: '/netty/nio/three_component' },
+            { text: '设计模式', link: '/designmode/SoftwareDesignPrinciples' },
+            { text: '机器学习', link: '/ml/YOLOv3' },
+            {
+                text: 'SpringCloud',
+                items:[
+                    {text:'响应式编程', link: '/springcloud/reactive/reactivestream'}
+                ]
+            }
         ],
         sidebar: {
+            '/springcloud': [
+                {
+                    title: '响应式编程',
+                    collapsable: true,
+                    children: [
+                        { title: 'Reactive Stream', path: '/springcloud/reactive/ReactiveStream' },
+                        { title: 'WebFlux', path: '/springcloud/reactive/webflux' }
+                    ]
+                }
+            ],
             '/guide': [
                 {
                     title: 'Java',
@@ -74,13 +90,13 @@ module.exports = {
                         { title: '代码模板', path: '/guide/interview/CodeTemplate' }
                     ]
                 },
-                {
-                    title: '面经',
-                    children: [
-                        { title: '携程', path: 'guide/interview/xiecheng' }
-                        // { title: '华为', path: 'guide/interview/huawei' }
-                    ]
-                },
+                // {
+                //     title: '面经',
+                //     children: [
+                //         { title: '携程', path: 'guide/interview/xiecheng' }
+                //         // { title: '华为', path: 'guide/interview/huawei' }
+                //     ]
+                // },
                 {
                     title: '海量数据',
                     children: [
