@@ -1,7 +1,7 @@
 ---
 title: 适配器模式
 author: Vingkin
-date: 2022-6-14
+date: 2023-8-9
 ---
 
 > [程序媛教你一看就懂的适配器设计模式！](https://mp.weixin.qq.com/s/1w_epimqLBOiZdIhe6sUsw)

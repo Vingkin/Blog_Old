@@ -3,7 +3,7 @@ module.exports = {
     description: '~~~',
     base: '/Blog/',
     theme: 'reco',
-    // icon: 'logo.jpg',
+    icon: 'logo.gif',
     timeline: true,
     markdown: {
         lineNumbers: true//代码显示行号
@@ -17,7 +17,7 @@ module.exports = {
         lastUpdated: '上次更新',
         subSidebar: 'auto',
         author: 'Vingkin',
-        logo: '/logo.jpg',
+        logo: '/logo.gif',
         nav: [
             { text: 'Home', icon: 'reco-home', link: '/' },
             { text: '面试', icon: 'reco-blog', link: '/guide/interview/Java' },
@@ -128,7 +128,8 @@ module.exports = {
                     title: '行为型模式',
                     collapsable: true,
                     children: [
-                        { title: '模板方法模式', path: '/designmode/Template' }
+                        { title: '模板方法模式', path: '/designmode/Template' },
+                        { title: '观察者模式', path: '/designmode/Observer' }
                     ]
                 }
             ],
