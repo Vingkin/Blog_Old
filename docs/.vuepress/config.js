@@ -20,7 +20,7 @@ module.exports = {
         logo: '/logo.gif',
         nav: [
             { text: 'Home', link: '/' },
-            { text: '面试', link: '/guide/interview/Java' },
+            { text: 'Java相关', link: '/guide/interview/Java' },
             { text: '操作系统', link: '/OS/OS1' },
             { text: 'Netty', link: '/netty/nio/three_component' },
             { text: '设计模式', link: '/designmode/SoftwareDesignPrinciples' },
@@ -49,6 +49,7 @@ module.exports = {
                     collapsable: true,
                     children: [
                         { title: 'Java基础', path: '/guide/interview/Java' },
+                        { title: 'JDK8新特性', path: '/guide/interview/JDK8' },
                         { title: 'Java并发', path: '/guide/interview/concurrent' },
                         { title: 'JVM', path: '/guide/interview/JVM' }
                     ]
