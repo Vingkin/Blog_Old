@@ -79,7 +79,8 @@ module.exports = {
                     title: '数据库',
                     children: [
                         { title: 'MySQL', path: '/guide/interview/Mysql' },
-                        { title: 'Redis', path: '/guide/interview/Redis' }
+                        { title: 'Redis', path: '/guide/interview/Redis' },
+                        { title: '数据库开发规范', path: '/guide/interview/DatabaseGuidelines' }
                     ]
                 },
                 {
