@@ -147,7 +147,8 @@ module.exports = {
                     collapsable: true,
                     children: [
                         { title: '模板方法模式', path: '/designmode/Template' },
-                        { title: '观察者模式', path: '/designmode/Observer' }
+                        { title: '观察者模式', path: '/designmode/Observer' },
+                        { title: '策略模式', path: '/designmode/Strategy' }
                     ]
                 }
             ],
