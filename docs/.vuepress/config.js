@@ -19,16 +19,17 @@ module.exports = {
         author: 'Vingkin',
         logo: '/logo.gif',
         nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Java相关', link: '/guide/interview/Java' },
-            { text: '操作系统', link: '/OS/OS1' },
-            { text: 'Netty', link: '/netty/nio/three_component' },
-            { text: '设计模式', link: '/designmode/SoftwareDesignPrinciples' },
-            { text: '机器学习', link: '/ml/YOLOv3' },
+            {text: 'Home', link: '/'},
+            {text: 'Java相关', link: '/guide/interview/Java'},
+            {text: '操作系统', link: '/OS/OS1'},
+            {text: 'Netty', link: '/netty/nio/three_component'},
+            {text: '设计模式', link: '/designmode/SoftwareDesignPrinciples'},
+            {text: '机器学习', link: '/ml/YOLOv3'},
             {
                 text: 'SpringCloud',
-                items:[
-                    {text:'响应式编程', link: '/springcloud/reactive/reactivestream'}
+                items: [
+                    {text: '响应式编程', link: '/springcloud/reactive/reactivestream'},
+                    {text: '中间件', link: '/springcloud/middleware/ElasticSearch'}
                 ]
             }
         ],
@@ -38,8 +39,14 @@ module.exports = {
                     title: '响应式编程',
                     collapsable: true,
                     children: [
-                        { title: 'Reactive Stream', path: '/springcloud/reactive/ReactiveStream' },
-                        { title: 'WebFlux', path: '/springcloud/reactive/webflux' }
+                        {title: 'Reactive Stream', path: '/springcloud/reactive/ReactiveStream'},
+                        {title: 'WebFlux', path: '/springcloud/reactive/webflux'}
+                    ]
+                }, {
+                    title: '中间件',
+                    collapsable: true,
+                    children: [
+                        {title: 'ElasticSearch', path: '/springcloud/middleware/ElasticSearch'}
                     ]
                 }
             ],
@@ -48,10 +55,10 @@ module.exports = {
                     title: 'Java',
                     collapsable: true,
                     children: [
-                        { title: 'Java基础', path: '/guide/interview/Java' },
-                        { title: 'JDK8新特性', path: '/guide/interview/JDK8' },
-                        { title: 'Java并发', path: '/guide/interview/concurrent' },
-                        { title: 'JVM', path: '/guide/interview/JVM' }
+                        {title: 'Java基础', path: '/guide/interview/Java'},
+                        {title: 'JDK8新特性', path: '/guide/interview/JDK8'},
+                        {title: 'Java并发', path: '/guide/interview/concurrent'},
+                        {title: 'JVM', path: '/guide/interview/JVM'}
                     ]
                 },
                 {
@@ -60,17 +67,17 @@ module.exports = {
                         {
                             title: '基础',
                             children: [
-                                { title: '幂等', path: '/guide/interview/Idempotency' }
+                                {title: '幂等', path: '/guide/interview/Idempotency'}
                             ]
                         },
                         {
                             title: '开发框架',
                             children: [
-                                { title: 'Spring', path: '/guide/interview/Spring' },
-                                { title: 'Spring高级', path: '/guide/interview/spriiiiing' },
-                                { title: 'SpringMVC', path: '/guide/interview/SpringMVC' },
-                                { title: 'MyBatis', path: '/guide/interview/MyBatis' },
-                                { title: 'SpringBoot', path: '/guide/interview/SpringBoot' }
+                                {title: 'Spring', path: '/guide/interview/Spring'},
+                                {title: 'Spring高级', path: '/guide/interview/spriiiiing'},
+                                {title: 'SpringMVC', path: '/guide/interview/SpringMVC'},
+                                {title: 'MyBatis', path: '/guide/interview/MyBatis'},
+                                {title: 'SpringBoot', path: '/guide/interview/SpringBoot'}
                             ]
                         }
                     ]
@@ -78,18 +85,18 @@ module.exports = {
                 {
                     title: '数据库',
                     children: [
-                        { title: 'MySQL', path: '/guide/interview/Mysql' },
-                        { title: 'Redis', path: '/guide/interview/Redis' },
-                        { title: '数据库开发规范', path: '/guide/interview/DatabaseGuidelines' }
+                        {title: 'MySQL', path: '/guide/interview/Mysql'},
+                        {title: 'Redis', path: '/guide/interview/Redis'},
+                        {title: '数据库开发规范', path: '/guide/interview/DatabaseGuidelines'}
                     ]
                 },
                 {
                     title: '计算机基础',
                     children: [
-                        { title: '操作系统', path: '/guide/interview/OS' },
-                        { title: '计算机网络', path: '/guide/interview/ComputerNetwork' },
-                        { title: '数据结构', path: '/guide/interview/DataStructure' },
-                        { title: '代码模板', path: '/guide/interview/CodeTemplate' }
+                        {title: '操作系统', path: '/guide/interview/OS'},
+                        {title: '计算机网络', path: '/guide/interview/ComputerNetwork'},
+                        {title: '数据结构', path: '/guide/interview/DataStructure'},
+                        {title: '代码模板', path: '/guide/interview/CodeTemplate'}
                     ]
                 },
                 // {
@@ -102,7 +109,7 @@ module.exports = {
                 {
                     title: '海量数据',
                     children: [
-                        { title: '如何从海量数据中找出高频词？', path: '/guide/interview/high_frequency_words' }
+                        {title: '如何从海量数据中找出高频词？', path: '/guide/interview/high_frequency_words'}
                     ]
                 },
                 {
@@ -111,44 +118,44 @@ module.exports = {
                         {
                             title: 'ID生成器',
                             children: [
-                                { title: '雪花算法', path: '/guide/interview/SnowFlake' }
+                                {title: '雪花算法', path: '/guide/interview/SnowFlake'}
                             ]
                         }
                     ]
                 }
             ],
             '/OS': [
-                { title: '操作系统上', path: '/OS/OS1' },
-                { title: '操作系统中', path: '/OS/OS2' },
-                { title: '操作系统下', path: '/OS/OS3' }
+                {title: '操作系统上', path: '/OS/OS1'},
+                {title: '操作系统中', path: '/OS/OS2'},
+                {title: '操作系统下', path: '/OS/OS3'}
             ],
             '/designmode': [
-                { title: '软件设计原则', path: '/designmode/SoftwareDesignPrinciples' },
+                {title: '软件设计原则', path: '/designmode/SoftwareDesignPrinciples'},
                 {
                     title: '创建者模式',
                     collapsable: true,
                     children: [
-                        { title: '单例模式', path: '/designmode/Singleton' },
-                        { title: '工厂模式', path: '/designmode/Factory' },
-                        { title: '原型模式', path: '/designmode/Prototype' },
-                        { title: '建造者模式', path: '/designmode/Builder' }
+                        {title: '单例模式', path: '/designmode/Singleton'},
+                        {title: '工厂模式', path: '/designmode/Factory'},
+                        {title: '原型模式', path: '/designmode/Prototype'},
+                        {title: '建造者模式', path: '/designmode/Builder'}
                     ]
                 },
                 {
                     title: '结构型模式',
                     collapsable: true,
                     children: [
-                        { title: '适配器模式', path: '/designmode/Adapter' },
-                        { title: '代理模式', path: '/designmode/Proxy' }
+                        {title: '适配器模式', path: '/designmode/Adapter'},
+                        {title: '代理模式', path: '/designmode/Proxy'}
                     ]
                 },
                 {
                     title: '行为型模式',
                     collapsable: true,
                     children: [
-                        { title: '模板方法模式', path: '/designmode/Template' },
-                        { title: '观察者模式', path: '/designmode/Observer' },
-                        { title: '策略模式', path: '/designmode/Strategy' }
+                        {title: '模板方法模式', path: '/designmode/Template'},
+                        {title: '观察者模式', path: '/designmode/Observer'},
+                        {title: '策略模式', path: '/designmode/Strategy'}
                     ]
                 }
             ],
@@ -157,38 +164,38 @@ module.exports = {
                     title: 'NIO基础',
                     collapsable: true,
                     children: [
-                        { title: '三大组件', path: '/netty/nio/three_component' },
-                        { title: 'ByteBuffer', path: '/netty/nio/bytebuffer' },
-                        { title: '文件编程', path: '/netty/nio/file_programming' },
-                        { title: '网络编程', path: '/netty/nio/network_programming' },
-                        { title: 'NIO vs. BIO', path: '/netty/nio/NIOvsBIO' }
+                        {title: '三大组件', path: '/netty/nio/three_component'},
+                        {title: 'ByteBuffer', path: '/netty/nio/bytebuffer'},
+                        {title: '文件编程', path: '/netty/nio/file_programming'},
+                        {title: '网络编程', path: '/netty/nio/network_programming'},
+                        {title: 'NIO vs. BIO', path: '/netty/nio/NIOvsBIO'}
                     ]
                 },
                 {
                     title: 'Netty入门',
                     collapsable: true,
                     children: [
-                        { title: '概述', path: '/netty/basics/summary' },
-                        { title: 'Hello World', path: '/netty/basics/helloworld' },
-                        { title: '组件', path: '/netty/basics/component' },
-                        { title: '双向通信', path: '/netty/basics/two_way_communication' }
+                        {title: '概述', path: '/netty/basics/summary'},
+                        {title: 'Hello World', path: '/netty/basics/helloworld'},
+                        {title: '组件', path: '/netty/basics/component'},
+                        {title: '双向通信', path: '/netty/basics/two_way_communication'}
                     ]
                 },
                 {
                     title: 'Netty进阶',
                     collapsable: true,
                     children: [
-                        { title: '粘包与半包', path: '/netty/advance/bag' },
-                        { title: '协议的设计与解析', path: '/netty/advance/protocol' },
-                        { title: '聊天室案例', path: '/netty/advance/chatroom' }
+                        {title: '粘包与半包', path: '/netty/advance/bag'},
+                        {title: '协议的设计与解析', path: '/netty/advance/protocol'},
+                        {title: '聊天室案例', path: '/netty/advance/chatroom'}
                     ]
                 },
                 {
                     title: 'Netty优化与源码',
                     collapsable: true,
                     children: [
-                        { title: '优化', path: '/netty/optimization/optimization' },
-                        { title: '源码', path: '/netty/optimization/source_code' }
+                        {title: '优化', path: '/netty/optimization/optimization'},
+                        {title: '源码', path: '/netty/optimization/source_code'}
                     ]
                 }
             ],
@@ -197,10 +204,10 @@ module.exports = {
                     title: '论文解读',
                     collapsable: true,
                     children: [
-                        { title: 'YOLOv3', path: '/ml/YOLOv3' },
-                        { title: 'GAN', path: '/ml/GAN' },
-                        { title: 'CycleGAN', path: '/ml/CycleGAN' },
-                        { title: 'pix2pix', path: '/ml/pix2pix' }
+                        {title: 'YOLOv3', path: '/ml/YOLOv3'},
+                        {title: 'GAN', path: '/ml/GAN'},
+                        {title: 'CycleGAN', path: '/ml/CycleGAN'},
+                        {title: 'pix2pix', path: '/ml/pix2pix'}
                     ]
                 }
             ]

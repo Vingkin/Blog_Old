@@ -1,7 +1,7 @@
 ---
 title: 代理模式
 author: Vingkin
-date: 2022-6-26
+date: 2023-8-31
 ---
 
 ## 概述
