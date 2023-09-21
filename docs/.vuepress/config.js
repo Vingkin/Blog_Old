@@ -1,4 +1,22 @@
 module.exports = {
+    head: [
+        // 网页标签栏图标
+        ['link', { rel: 'icon', href: '/vuepress/favicon.ico' }],
+        // 移动栏优化
+        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+        // 引入jquery
+        ["script", {
+            "language": "javascript",
+            "type": "text/javascript",
+            "src": "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
+        }],
+        // 引入鼠标点击脚本
+        ["script", {
+            "language": "javascript",
+            "type": "text/javascript",
+            "src": "/js/MouseClickEffect.js"
+        }]
+    ],
     title: 'Vingkin的学习文档',
     description: '~~~',
     base: '/Blog/',
@@ -26,27 +44,40 @@ module.exports = {
             {text: '设计模式', link: '/designmode/SoftwareDesignPrinciples'},
             {text: '机器学习', link: '/ml/YOLOv3'},
             {
-                text: 'SpringCloud',
+                text: '微服务',
                 items: [
-                    {text: '响应式编程', link: '/springcloud/reactive/reactivestream'},
-                    {text: '中间件', link: '/springcloud/middleware/ElasticSearch'}
+                    {text: '响应式编程', link: '/microservice/reactive/reactivestream'},
+                    {text: '中间件', link: '/microservice/middleware/elasticsearch/ElasticSearchBase'}
                 ]
             }
         ],
         sidebar: {
-            '/springcloud': [
+            '/microservice': [
                 {
                     title: '响应式编程',
-                    collapsable: true,
+                    // collapsable: true,
                     children: [
-                        {title: 'Reactive Stream', path: '/springcloud/reactive/ReactiveStream'},
-                        {title: 'WebFlux', path: '/springcloud/reactive/webflux'}
+                        {title: 'Reactive Stream', path: '/microservice/reactive/ReactiveStream'},
+                        {title: 'WebFlux', path: '/microservice/reactive/webflux'}
                     ]
                 }, {
                     title: '中间件',
-                    collapsable: true,
+                    // collapsable: true,
                     children: [
-                        {title: 'ElasticSearch', path: '/springcloud/middleware/ElasticSearch'}
+                        {
+                            title: 'ElasticSearch',
+                            collapsable: true,
+                            children: [
+                                {title: 'ElasticSearch 基础', path: '/microservice/middleware/elasticsearch/ElasticSearchBase'},
+                                {title: 'ElasticSearch 实战', path: '/microservice/middleware/elasticsearch/ElasticSearchApp'}
+                            ]
+                        }, {
+                            title: 'Redis',
+                            children: [
+                                {title: 'Redis 基础', path: '/microservice/middleware/redis/RedisBase'},
+                                {title: 'Redis 实战', path: '/microservice/middleware/redis/RedisApp'}
+                            ]
+                        }
                     ]
                 }
             ],

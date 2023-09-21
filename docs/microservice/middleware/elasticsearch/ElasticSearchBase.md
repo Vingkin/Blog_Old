@@ -1,5 +1,5 @@
 ---
-title: ElasticSearch
+title: ElasticSearch 基础
 author: Vingkin
 date: 2023-9-4
 ---
